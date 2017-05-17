@@ -27,7 +27,7 @@ Route::group(['middleware' => ['auth', 'adminas']], function(){
     Route::post('/SEO-optimizacija/edit/{id}', 'SeoPostController@update')->name('SEO-optimizacija.admin.update');
     Route::get('/SEO-optimizacija/delete/{id}', 'SeoPostController@delete')->name('SEO-optimizacija.admin.delete');
 
-    Route::get('/SEO-optimizacija/comments/{id}', 'SeoPostController@seoPostComment')->name('SEO-optimizacija.comments.list');
+    Route::get('/SEO-optimizacija/admin/comments/{id}', 'SeoPostController@seoPostComment')->name('SEO-optimizacija.comments.list');
     Route::get('/SEO-optimizacija/comments/', 'SeoPostController@seoPostCommentsAll')->name('SEO-optimizacija.comments.list.all');
     Route::get('/SEO-optimizacija/comments/delete/{id}', 'SeoPostController@seoPostCommentDelete')->name('SEO-optimizacija.comment.delete');
 });

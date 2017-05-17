@@ -134,13 +134,13 @@ class SeoPostController extends Controller
     public function seoPostCommentsAll()
     {
         $comments = SeoPostComment::all();
+
         $posts = Seopost::all();
+
 
 
         return view('SEO-optimizacija.admin.comments', ['comments' => $comments,'posts' => $posts]);
     }
-
-
 
 
     public function seoPostCommentDelete($id){
@@ -151,10 +151,13 @@ class SeoPostController extends Controller
 
     public function seoPostComment($id)
     {
-        $comments = SeoPostComment::all();
 
-        return view('SEO-optimizacija.admin.comments', ['comments' => $comments]);
+        $posts = Seopost::find($id); //surandam konretu posta pagal id /// turi sarysi commnets MODEL
+        $comments = $posts->comments; //
 
+       // dd($posts->comments); //coments per MODEL sarysis
+
+        return view('SEO-optimizacija.admin.comments', ['comments' => $comments,'posts' => $posts]);
 
 
     }

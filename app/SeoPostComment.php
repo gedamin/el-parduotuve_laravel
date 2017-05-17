@@ -14,6 +14,5 @@ class seoPostComment extends Model
 
     public function seopost() {
         return $this->belongsTo('App\Seopost',  'seo_post_id');
-
     }
 }

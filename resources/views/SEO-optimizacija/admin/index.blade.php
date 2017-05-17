@@ -46,10 +46,10 @@
                             <div><img src="/storage/seo_post_img/{{$post->img}}" width="70" height="auto"></div>
                         </td>
                         <td class="table-text">
-                            <div>{{str_limit($post->short_conten, 125)}} [...]</div>
+                            <div>{{strip_tags(str_limit($post->short_conten, 125))}} [...]</div>
                         </td>
                         <td class="table-text">
-                            <div>{{str_limit($post->content, 325)}} [...]</div>
+                            <div>{{strip_tags(str_limit($post->content, 325))}} [...]</div>
                         </td>
                         <td class="table-text">
                             <div>{{$post->created}}</div>
@@ -58,7 +58,8 @@
                             <div>{{$post->author}}</div>
                         </td>
                         <td>
-                            <a href="{{ route('SEO-optimizacija.comments.list', $post->id) }}" class="label label-info">Komentarai</a>
+                            <a href="{{ route('SEO-optimizacija.comments.list', $post->id) }}" class="label label-info">Komentarai ({{count($post->comments)}})</a>
+{{--                            {{dd($post->comments)}};--}}
                             <a href="{{ route('SEO-optimizacija.admin.edit', $post->id) }}" class="label label-warning">Redaguoti</a>
                             <a href="{{ url('SEO-optimizacija',$post->id) }}" class="label label-success" target="_blank">Peržiūrėti</a>
                             <a href="{{ route('SEO-optimizacija.admin.delete', $post->id) }}" class="label label-danger" onclick="return confirm('Are you sure to delete?')">Ištrinti</a>

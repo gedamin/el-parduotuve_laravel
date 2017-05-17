@@ -47,17 +47,9 @@
                                 </td>
                                 <td class="table-text">
                                     <div>
-
-{{--                                        {{$comment->title}}--}}
-
-{{--                                        {{$comment->seopost->title}}--}}
+                                        {{$comment->seopost->title}}
+{{--{{dump($comment->seopost)}}--}}
 {{--{{dd($comment->seopost)}}--}}
-
-
-
-
-
-
                                     </div>
                                 </td>
                                 <td class="table-text">
@@ -74,11 +66,13 @@
 
                                 </td>
                             </tr>
+
                         @endforeach
                         </tbody>
                         @else
                             <p>Please Login to see list: <a href="{{url('login')}}">LOGIN</a></p>
                         @endif
+
                     </table>
                 </div>
             </div>
