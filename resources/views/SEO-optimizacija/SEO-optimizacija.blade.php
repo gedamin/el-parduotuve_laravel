@@ -179,7 +179,7 @@
                                         <div>
                                             <div>
                                                 <div class="img-thumbnail">
-                                                    <a href="{{ url('SEO-optimizacija/seo-efektyviausia-reklama-internete.php') }}"><img
+                                                    <a href="{{ url('SEO-optimizacija',$post->id) }}"><img
                                                                 class="img-responsive"
                                                                 src="/storage/seo_post_img/{{$post->img}}" alt="{{$post->title}}"></a>
                                                 </div>
@@ -192,7 +192,7 @@
                                     <div class="post-content">
 
                                         <h3 class="mb-xs"><a
-                                                    href="{{ url('SEO-optimizacija/seo-efektyviausia-reklama-internete.php') }}">{{$post->title}}</a></h3>
+                                                    href="{{ url('SEO-optimizacija',$post->id) }}">{{$post->title}}</a></h3>
                                         <p class="justify">{!! $post->short_conten !!}</p>
 
                                     </div>
@@ -206,8 +206,8 @@
                                         <span><i class="fa fa-user"></i> Parengė <a
                                                     href="https://plus.google.com/u/0/117284839973334834336?rel=author">{{$post->author}}</a> </span>
                                         <span><i class="fa fa-comments"></i> <a
-                                                    href="{{ url('SEO-optimizacija/seo-efektyviausia-reklama-internete.php') }}">12 Komentarų</a></span>
-                                        <a href="{{ url('SEO-optimizacija/seo-efektyviausia-reklama-internete.php') }}"
+                                                    href="{{ url('SEO-optimizacija',$post->id) }}">12 Komentarų</a></span>
+                                        <a href="{{ url('SEO-optimizacija',$post->id) }}"
                                            class="btn btn-xs btn-primary pull-right">Detaliau...</a>
                                     </div>
                                 </div>

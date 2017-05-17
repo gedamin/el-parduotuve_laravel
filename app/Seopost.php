@@ -12,4 +12,9 @@ class Seopost extends Model
     //custom timestamps name
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
+
+    public function comments() {
+        return $this->hasMany('App\seoPostComment',  'seo_post_id'); // nurodziau lauko DB pavadinima 'seo_post_id' kuripouo atliktas surisismas
+
+    }
 }

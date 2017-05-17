@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\seoPostComment;
 use Illuminate\Http\Request;
 use App\Seopost;
+use Illuminate\Support\Facades\DB;
 
 use Session;
 
@@ -16,11 +18,20 @@ class SeoPostController extends Controller
         $posts = Seopost::orderBy('created','desc')->get();
         //pass posts data to view and load list view
 
+        $comments = SeoPostComment::all();
         //SESSION MESAGGE
         $message = session()->get('message');
 
-       return view('/SEO-optimizacija/admin.index', ['posts' => $posts,'message' => $message ]);
+       return view('/SEO-optimizacija/admin.index', ['posts' => $posts, 'comments' => $comments, 'message' => $message ]);
     }
+
+
+
+
+
+
+
+
 
     public function edit($id)
     {
@@ -97,9 +108,54 @@ class SeoPostController extends Controller
         Seopost::find($id)->delete($id);
         return redirect()->route('SEO-optimizacija.admin.index');
     }
+
+    public function insertComent($id, Request $request){
+        $comments = SeoPostComment::find($id);
+        //validate post data
+//        dd('$coments');
+
+        $this->validate($request, [
+            'comment_author' => 'required',
+            'email' => 'required'
+        ]);
+        //get post data
+        $postData = $request->all();
+//        dump($postData);
+        $postData ['seo_post_id']= $id;
+//        dd($postData);
+
+        //insert post data
+        SeoPostComment::create($postData);
+
+        return redirect()->back();
+    }
+
+    //take all coments list seoPostCommentsAll
+    public function seoPostCommentsAll()
+    {
+        $comments = SeoPostComment::all();
+        $posts = Seopost::all();
+
+
+        return view('SEO-optimizacija.admin.comments', ['comments' => $comments,'posts' => $posts]);
+    }
+
+
+
+
+    public function seoPostCommentDelete($id){
+        SeoPostComment::find($id)->delete($id);
+        return redirect()->route('SEO-optimizacija.comments.list.all');
+    }
+
+
+    public function seoPostComment($id)
+    {
+        $comments = SeoPostComment::all();
+
+        return view('SEO-optimizacija.admin.comments', ['comments' => $comments]);
+
+
+
+    }
 }
-
-
-
-
-
