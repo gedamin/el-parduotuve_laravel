@@ -1,5 +1,4 @@
 @extends('layouts.admin.seo-post')
-
 @section('content')
     <div class="row">
         <div class="col-lg-12">
@@ -12,36 +11,32 @@
             @endif
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Edit Post <a href="{{ route('SEO-optimizacija.admin.index') }}" class="label label-primary pull-right">Back</a>
+                    <h3>Pridėti naują BLOG įrašą: <a href="{{ route('SEO-optimizacija.admin.index') }}" class="label label-primary pull-right">Atgal</a></h3>
+
                 </div>
                 <div class="panel-body">
                     <form action="{{ route('SEO-optimizacija.admin.insert') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <label class="control-label col-sm-2" >Title</label>
+                            <label class="control-label col-sm-2" >Pavadinimas:</label>
                             <div class="col-sm-10">
                                 <input type="text" name="title" id="title" class="form-control" value="">
                             </div>
                         </div>
-
-
                         <div class="form-group">
-                            <label class="control-label col-sm-2" >img</label>
+                            <label class="control-label col-sm-2" >Paveiksliukas:</label>
                             <div class="col-sm-10">
                                 <input type="file" name="img" id="img" class="form-control">
                             </div>
                         </div>
-
-
                         <div class="form-group">
-                            <label class="control-label col-sm-2" >short_conten</label>
+                            <label class="control-label col-sm-2" >Trumpas aprašymas (sąraše):</label>
                             <div class="col-sm-10">
                                 <input type="text" name="short_conten" id="img" class="form-control" value="">
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label class="control-label col-sm-2" >Content</label>
+                            <label class="control-label col-sm-2" >Turinys:</label>
                             <div class="col-sm-10">
                                 <textarea name="content" id="content" class="form-control"></textarea>
                                 <script>
@@ -50,14 +45,14 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-2" >author</label>
+                            <label class="control-label col-sm-2" >Autorius:</label>
                             <div class="col-sm-10">
                                 <input type="text" name="author" id="author" class="form-control" value="">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <input type="submit" class="btn btn-default" value="Update Post" />
+                                <input type="submit" class="btn btn-success" value="Pridėti" />
                             </div>
                         </div>
                     </form>
@@ -65,5 +60,4 @@
             </div>
         </div>
     </div>
-
 @endsection

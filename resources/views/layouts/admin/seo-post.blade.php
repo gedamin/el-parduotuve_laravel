@@ -61,10 +61,10 @@
             </li>
 
             <li class="nav-header">
-                <div class="link"><i class="fa fa-lg fa-users"></i>Users<i class="fa fa-chevron-down"></i></div>
+                <div class="link"><i class="fa fa-lg fa-users"></i>MENIU<i class="fa fa-chevron-down"></i></div>
                 <ul class="submenu">
-                    <li><a href="#">Users</a></li>
-                    <li><a href="#">New User</a></li>
+                    <li><a href="#">Pagrindinis Meniu</a></li>
+                    <li><a href="#">Kategorijų Meniu</a></li>
                 </ul>
             </li>
 

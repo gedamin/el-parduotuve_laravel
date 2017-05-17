@@ -143,13 +143,13 @@
                                     <li>
                                         <div class="comment">
                                             <div class="img-thumbnail">
-                                                <img class="avatar" alt="" src="img/avatars/avatar-2.jpg">
+                                                <img class="avatar" alt="{{$comment->comment_author}}" src="{{ url('assets/img/ico/avatar.png') }}">
                                             </div>
                                             <div class="comment-block">
                                                 <div class="comment-arrow"></div>
                                                 <span class="comment-by"><strong>{{$comment->comment_author}}</strong></span>
                                                 <p>{{$comment->seo_post_comment}}</p>
-                                                <span class="date pull-right">{{$comment->comment_created->format('y-m-d')}}</span>
+                                                <span class="date pull-right">{{$comment->comment_created->format('Y-m-d')}}</span>
                                             </div>
                                         </div>
                                     </li>

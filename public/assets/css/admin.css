@@ -70,7 +70,7 @@
     float: left;
     display: block;
     left: 0;
-    min-height: 900px;
+    min-height: 1000px;
 
 }
 .wrap .content {
@@ -86,15 +86,15 @@
 .wrap .content .top-bar {
     height: 40px;
     background: #ddd;
+    margin-bottom: 20px;
 }
 .wrap .content .content-inner {
-    padding: 0;
     margin: 0;
     background: #fff;
-    padding-left: 20px;
+    padding:0 20px;
     display: block;
     position: absolute;
-    min-height: 900px;
+    min-height: 1000px;
     width: 100%;
 }
 .wrap ul.accordion {

@@ -10,7 +10,7 @@ class MainController extends Controller
     public function index()
     {
         //$manufacturersS = Manufacturer::all();
-        $posts = Seopost::orderBy('created','desc')->get();
+        $posts = Seopost::orderBy('created','desc')->paginate(2);
         return view('SEO-optimizacija.SEO-optimizacija', ['posts' => $posts]);
 
         return view('SEO-optimizacija.seo-efektyviausia-reklama-internete');

@@ -173,7 +173,6 @@
                         @foreach($posts as $post)
                         <article class="post post-medium">
                             <div class="row">
-
                                 <div class="col-md-5">
                                     <div class="post-image">
                                         <div>
@@ -188,16 +187,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-7">
-
                                     <div class="post-content">
-
                                         <h3 class="mb-xs"><a
                                                     href="{{ url('SEO-optimizacija',$post->id) }}">{{$post->title}}</a></h3>
                                         <p class="justify">{!! $post->short_conten !!}</p>
-
                                     </div>
                                 </div>
-
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
@@ -212,7 +207,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </article>
                         @endforeach
 
@@ -227,6 +221,8 @@
                             <li><a href="#">3</a></li>
                             <li><a href="#">»</a></li>
                         </ul>
+
+                        {{ $posts->links() }}
 
                     </div>
                 </div>
