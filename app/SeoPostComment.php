@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class seoPostComment extends Model
 {
-    protected $fillable = ['comment_author', 'email', 'seo_post_comment', 'seo_post_id'];
+    public $table = 'seo_post_comments';
+    protected $fillable = ['comment_author', 'email', 'seo_post_comment', 'seo_post_id', 'is_active_comment'];
 
     //custom timestamps name
     const CREATED_AT = 'comment_created';
@@ -15,4 +16,5 @@ class seoPostComment extends Model
     public function seopost() {
         return $this->belongsTo('App\Seopost',  'seo_post_id');
     }
+
 }

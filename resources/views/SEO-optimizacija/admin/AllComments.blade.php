@@ -17,7 +17,6 @@
                     <td style="width: 1px;" class="text-center">ID</td>
                     <td class="text-center">Autorius</td>
                     <td class="text-center">El. paštas</td>
-                    <td class="text-center">Blog įrašo pavadinimas</td>
                     <td class="text-center">Komentaras</td>
                     <td class="text-center">Data</td>
                     <td class="text-center">Aktyvuoti</td>
@@ -31,13 +30,20 @@
                             <td class="text-center">{{$comment->id}}</td>
                             <td class="text-center">{{$comment->comment_author}}</td>
                             <td class="text-center">{{$comment->email}}</td>
-                            <td class="text-center">{{$comment->seopost->title}}</td>
                             <td class="text-center">{{$comment->seo_post_comment}}</td>
                             <td class="text-center">{{$comment->comment_created}}</td>
-                            <td class="text-center">{{$comment->is_active_comment}}</td>
+                            <td class="text-center">
+                                <div>
+                                    @if(($comment->is_active_comment) != 1 )
+                                        <span class="color-active">Aktyvuota</span>
+                                    @else
+                                        <span class="color-notActive">Deaktyvuota</span>
+                                    @endif
+                                </div>
+                            </td>
                             <td class="text-right">
                                 <p><a href="{{ route('SEO-optimizacija.comment.edit', $comment->id) }}"
-                                      class="label label-warning">Redaguoti</a></p>
+                                   class="label label-warning">Redaguoti</a></p>
                                 <p><a href="{{ route('SEO-optimizacija.comment.delete', $comment->id) }}"
                                       class="label label-danger" onclick="return confirm('Ar tikrai norite ištrinti?')">Ištrinti</a></p>
                             </td>

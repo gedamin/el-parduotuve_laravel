@@ -3569,6 +3569,9 @@ html.dark .text-muted {
 	.col-md-3 .sidebar {
 		clear: both;
 	}
+	.none-mobil-sidebar {
+		display: none;
+	}
 }
 /* #Footer */
 #footer {

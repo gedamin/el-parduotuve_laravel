@@ -15,7 +15,9 @@ class SeoPostController extends Controller
     {
         //fetch all posts data
         //$posts = Seopost::all();
-        $posts = Seopost::orderBy('created','desc')->get();
+        $posts = Seopost::orderBy('created','desc')->paginate(8);
+
+
         //pass posts data to view and load list view
 
         $comments = SeoPostComment::all();
@@ -24,13 +26,6 @@ class SeoPostController extends Controller
 
        return view('/SEO-optimizacija/admin.index', ['posts' => $posts, 'comments' => $comments, 'message' => $message ]);
     }
-
-
-
-
-
-
-
 
 
     public function edit($id)
@@ -46,49 +41,30 @@ class SeoPostController extends Controller
         $this->validate($request, [
             'title' => 'required | min:3',
 //            'img' => 'required',
-            'content' => 'required',
-            'short_conten' => 'required',
+//            'content' => 'required',
+//            'short_conten' => 'required',
             'author' => 'required'
         ]);
         //get post data
         $postData = $request->all();
-
         $file = $request->file('img');
         $path = $file->store('public/seo_post_img');
         $fileName = basename($path);
         $postData ['img']= $fileName;
         //update post data
         Seopost::find($id)->update($postData);
-
-       // return view('/SEO-optimizacija/admin.index');
-
         return redirect()->route('SEO-optimizacija.admin.index');
 
-    }
-//    public function store(Request $request){
-//        $file = $request->file('img');
-//        $path = $file->store('public/seo_post_img');
-//        $fileName = basename($path);
-//        $postData ['img']= $fileName;
-//
-//    }
-
-    public function add(){
-        $posts = Seopost::all();
-        //load form view
-        return view('/SEO-optimizacija/admin.add', ['post' => $posts]);
     }
     public function insert(Request $request){
         //validate post data
         $this->validate($request, [
             'title' => 'required',
-            'content' => 'required',
+//            'content' => 'required',
             'img' => 'required'
         ]);
-
         //get post data
         $postData = $request->all();
-
         $file = $request->file('img');
         $path = $file->store('public/seo_post_img');
         $fileName = basename($path);
@@ -97,15 +73,30 @@ class SeoPostController extends Controller
         //insert post data
         Seopost::create($postData);
 
-        //SESSION MESAGGE
-        session()->flash('message', 'Thank you');
-
         return redirect()->route('SEO-optimizacija.admin.index');
     }
 
+    public function add(){
+        $posts = Seopost::all();
+        //load form view
+        return view('/SEO-optimizacija/admin.add', ['post' => $posts]);
+    }
+
+
 
     public function delete($id){
+//        Seopost::find($id)->delete($id);
+
+        $deletePost = Seopost::find($id);
+//        ->delete($id);
+
+        $PostFileName = $deletePost->img;
+//        dd($PostFileName);
+
         Seopost::find($id)->delete($id);
+        unlink(storage_path('app/public/seo_post_img/' . $PostFileName));
+
+
         return redirect()->route('SEO-optimizacija.admin.index');
     }
 
@@ -131,34 +122,45 @@ class SeoPostController extends Controller
     }
 
     //take all coments list seoPostCommentsAll
+
     public function seoPostCommentsAll()
     {
         $comments = SeoPostComment::all();
-
         $posts = Seopost::all();
 
+//       dd($posts);
 
-
-        return view('SEO-optimizacija.admin.comments', ['comments' => $comments,'posts' => $posts]);
+        return view('SEO-optimizacija.admin.AllComments', ['comments' => $comments,'posts' => $posts]);
     }
 
+
+    public function seoPostComment($id)
+    {
+        $posts = Seopost::find($id); //surandam konretu posta pagal id /// turi sarysi commnets MODEL
+        $comments = $posts->comments; //
+//        dd($posts->comments); //coments per MODEL sarysis
+        return view('SEO-optimizacija.admin.comments', ['comments' => $comments,'posts' => $posts]);
+    }
 
     public function seoPostCommentDelete($id){
         SeoPostComment::find($id)->delete($id);
         return redirect()->route('SEO-optimizacija.comments.list.all');
     }
 
-
-    public function seoPostComment($id)
+    public function CommentEdit($id)
     {
+        $comments = SEOPostComment::find($id);
+        //load form view
 
-        $posts = Seopost::find($id); //surandam konretu posta pagal id /// turi sarysi commnets MODEL
-        $comments = $posts->comments; //
+        return view('SEO-optimizacija.admin.CommentsEdit', ['comments' => $comments]);
+    }
 
-       // dd($posts->comments); //coments per MODEL sarysis
+    public function CommentUpdate($id, Request $request){
 
-        return view('SEO-optimizacija.admin.comments', ['comments' => $comments,'posts' => $posts]);
-
-
+        //get data
+        $CommentData = $request->all();
+        //update data
+       SEOPostComment::find($id)->update($CommentData);
+        return redirect()->route('SEO-optimizacija.comments.list.all');
     }
 }

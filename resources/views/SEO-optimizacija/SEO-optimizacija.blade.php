@@ -63,6 +63,9 @@
         <div class="container">
 
             <div class="row">
+                <div class="col-md-3">
+                    @include('__include/categories')
+                </div>
                 <div class="col-md-9">
 
                     <div class="row">
@@ -201,7 +204,7 @@
                                         <span><i class="fa fa-user"></i> Parengė <a
                                                     href="https://plus.google.com/u/0/117284839973334834336?rel=author">{{$post->author}}</a> </span>
                                         <span><i class="fa fa-comments"></i> <a
-                                                    href="{{ url('SEO-optimizacija',$post->id) }}">12 Komentarų</a></span>
+                                                    href="{{ url('SEO-optimizacija',$post->id) }}">{{count($post->comments)}} Komentarų</a></span>
                                         <a href="{{ url('SEO-optimizacija',$post->id) }}"
                                            class="btn btn-xs btn-primary pull-right">Detaliau...</a>
                                     </div>
@@ -209,28 +212,8 @@
                             </div>
                         </article>
                         @endforeach
-
-
-
-
-
-                        <ul class="pagination pagination-lg pull-right">
-                            <li><a href="#">«</a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">»</a></li>
-                        </ul>
-
                         {{ $posts->links() }}
-
                     </div>
-                </div>
-
-                <div class="col-md-3">
-                    <aside class="sidebar">
-                        @include('__include/categories')
-                    </aside>
                 </div>
             </div>
 

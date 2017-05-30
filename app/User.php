@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'isAdmin'
     ];
 
     /**
@@ -34,4 +34,27 @@ class User extends Authenticatable
     public function isAdmin() {
         return($this->isAdmin == 1);
     }
+
+    public function LogoOnlyDisainerList() {
+        return $this->hasMany('App\LogoDisainer',  'user_id'); // nurodziau lauko DB pavadinima 'disainer_id' kuriuo atliktas surisismas
+
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

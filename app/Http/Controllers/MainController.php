@@ -9,25 +9,25 @@ class MainController extends Controller
 {
     public function index()
     {
-        //$manufacturersS = Manufacturer::all();
-        $posts = Seopost::orderBy('created','desc')->paginate(2);
+        $posts = Seopost::orderBy('created','desc')->paginate(8);
         return view('SEO-optimizacija.SEO-optimizacija', ['posts' => $posts]);
-
         return view('SEO-optimizacija.seo-efektyviausia-reklama-internete');
-
     }
     public function post()
     {
         return view('SEO-optimizacija.seo-efektyviausia-reklama-internete');
     }
-    public function seoPostView($id)
+    public function contacts()
+    {
+        return view('static-pages.kontaktai');
+    }
 
+    public function seoPostView($id)
     {
         $posts = Seopost::find($id);
 //        dd($posts->comments);
-
+//        dd($posts);
         return view('SEO-optimizacija.seoPostView', ['posts' => $posts]);
-
 //        try{
 //            $posts = Seopost::findorFail($id);
 //            return view('SEO-optimizacija.seoPostView', ['posts' => $posts]);
@@ -37,9 +37,6 @@ class MainController extends Controller
 //            //and excute whatever in this section
 //            return redirect('/SEO-optimizacija.php');
 //        }
-
-
     }
-
 
 }

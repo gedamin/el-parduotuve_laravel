@@ -54,7 +54,7 @@
                                 <a href="{{ url('/') }}">Pradžia</a>
                             </li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" href="{{ url('elektronines-parduotuves-kurimas.php') }}">El-parduotuvės kūrimas</a>
+                                <a class="dropdown-toggle @if($active == 'meniuElParduotuveKurimas')active @endif " href="{{ url('elektronines-parduotuves-kurimas.php') }}">El-parduotuvės kūrimas</a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-submenu">
                                         <a href="{{ url('elektronines-parduotuves-kurimas.php') }}">El-parduotuvės kūrimas</a>
@@ -109,7 +109,7 @@
                                 <a href="{{ url('atlikti-darbai.php') }}">Atlikti darbai</a>
                             </li>
 
-                            <li class="">
+                            <li class="@if($active == 'meniu_kontaktai')active @endif"">
                                 <a class="" href="{{ url('kontaktai.php') }}">Kontaktai</a>
                             </li>
                         </ul>

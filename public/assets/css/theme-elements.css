@@ -5577,6 +5577,11 @@ html.webkit .thumb-info-no-borders .thumb-info-wrapper {
 	padding: 10px;
 	display: block;
 }
+.thumb-info-caption-text {
+	min-height: 50px;
+	max-height: 50px;
+	overflow: hidden;
+}
 
 /* Thumb Info Side Image	*/
 .thumb-info-side-image .thumb-info-side-image-wrapper {
@@ -8312,7 +8317,7 @@ ul.history li .featured-box .box-content {
 /* Maps */
 .google-map {
 	background: #E5E3DF;
-	height: 400px;
+	height: 300px;
 	margin: -35px 0 30px 0;
 	width: 100%;
 }
