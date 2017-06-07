@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lt">
 <head>
     <title>Admin aplinka</title>
     <meta name="robots" content="NOINDEX,NOFOLLOW"/>
@@ -12,28 +12,21 @@
     <link rel="stylesheet" href="{{ url('assets/css/admin/stylesheet.css') }}">
     <script type="text/javascript" src="{{ url('assets/js/admin/common.js') }}"></script>
     <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+          media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 </head>
-
 <body>
 <header id="header" class="navbar navbar-static-top">
     <div class="navbar-header">
         <a type="button" id="button-menu" class="pull-left"><i class="fa fa-indent fa-lg"></i></a>
-
-        <a href="{{ route('SEO-optimizacija.admin.index') }}" class="navbar-brand"><img height="28" width="155"
-                                                                                        src="{{ url('assets/img/misc/admin_logo.png') }}"
-                                                                                        alt="heading_title; ?>"
-                                                                                        title="heading_title; ?>"/></a>
+        <a href="{{ route('SEO-optimizacija.admin.index') }}" class="navbar-brand"><img height="28" width="155" src="{{ url('assets/img/misc/admin_logo.png') }}" alt="ADMIN" title="ADMIN"/></a>
     </div>
-
     <ul class="nav pull-right">
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="pd-lr">Į Puslapį</span><i
-                        class="fa fa-life-ring fa-lg"></i></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="pd-lr">Į Puslapį</span><i class="fa fa-life-ring fa-lg"></i></a>
             <ul class="dropdown-menu dropdown-menu-right">
-
                 <li><a href="{{ url('/') }}" target="_blank">Pradžia</a></li>
-
                 <li class="divider"></li>
-                {{--<li class="dropdown-header">text_help; ?> <i class="fa fa-life-ring"></i></li>--}}
                 <li><a href="{{ url('/SEO-optimizacija.php') }}" target="_blank">SEO BLOG</a></li>
                 <li><a href="http://www.seopaslaptys.lt" target="_blank">Detali SEO</a></li>
                 <li><a href="{{ route('logotipu-kurimas.list.view') }}" target="_blank">Logotipų dizaineriai</a></li>
@@ -56,10 +49,7 @@
 </header>
 <nav id="column-left" class="active">
     <div id="profile">
-        <div><a class="dropdown-toggle" data-toggle="dropdown"><img src="{{ url('assets/img/ico/avatar.png') }}"
-                                                                    alt="{{ Auth::user()->name }}"
-                                                                    title="{{ Auth::user()->name }}" class="img-circle"
-                                                                    width="40"/></a></div>
+        <div><a class="dropdown-toggle" data-toggle="dropdown"><img src="{{ url('assets/img/ico/avatar.png') }}"  alt="{{ Auth::user()->name }}" title="{{ Auth::user()->name }}" class="img-circle" width="40"/></a></div>
         <div>
             <h4>{{ Auth::user()->name }}{{ Auth::user()->lastname }}</h4>
             <small>Administratorius</small>
@@ -67,12 +57,16 @@
     </div>
     <ul id="menu">
         @if (Auth::check() && Auth::user()->isAdmin() )
-            <li id="dashboard"><a href="{{ route('SEO-optimizacija.admin.index') }}"><i
-                            class="fa fa-dashboard fa-fw"></i> <span>Admin aplinka</span></a></li>
+            <li id="dashboard"><a href="{{ route('logotipu-kurimas.admin.disainer.view') }}"><i class="fa fa-dashboard fa-fw"></i> <span>Admin aplinka</span></a></li>
             <li id="catalog"><a class="parent"><i class="fa fa-tags fa-fw"></i> <span>SEO BLOG</span></a>
                 <ul>
                     <li><a href="{{ route('SEO-optimizacija.admin.index') }}">BLOG sąrašas</a></li>
                     <li><a href="{{ route('SEO-optimizacija.comments.list.all') }}">Visi komentarai</a></li>
+                </ul>
+            </li>
+            <li id="extension"><a class="parent"><i class="fa fa-cog fa-fw"></i> <span>Atlikti darbai</span></a>
+                <ul>
+                    <li><a href="{{ route('AtliktiDarbaiCRUD') }}">Atlikti darbai</a></li>
                 </ul>
             </li>
 

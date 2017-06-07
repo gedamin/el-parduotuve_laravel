@@ -35,13 +35,15 @@
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">Autorius</label>
                         <div class="col-sm-10">
-                            <input type="text" name="comment_author" id="comment_author" class="form-control" value="{{ $comments->comment_author }}">
+                            <input type="text" name="comment_author" id="comment_author" class="form-control"
+                                   value="{{ $comments->comment_author }}">
                         </div>
                     </div>
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">El.paštas</label>
                         <div class="col-sm-10">
-                            <input type="text" name="email" id="email" class="form-control" value="{{ $comments->email }}">
+                            <input type="text" name="email" id="email" class="form-control"
+                                   value="{{ $comments->email }}">
                         </div>
                     </div>
                     <div class="form-group required">

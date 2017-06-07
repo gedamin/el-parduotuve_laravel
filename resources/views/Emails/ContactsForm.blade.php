@@ -9,13 +9,10 @@
 </head>
 <body>
 
-<p>Pranešimas iš kontaktų formos</p>
-
-{{--{{dump($data)}}--}}
-<p>Vardas: {{$data ['ContactFormName'] }}</p>
-<p>El. paštas: {{$data ['ContactFormEmail'] }}</p>
-<p>Klausimas: {{$data ['ContacFormSubject'] }}</p>
-<p>Žinutė: {{$data ['ContactFormMessage'] }}</p>
-
+<h3>Pranešimas iš kontaktų formos</h3>
+    <p><strong>Vardas:</strong> {{$data ['ContactFormName'] }}</p>
+    <p><strong>El. paštas:</strong> {{$data ['ContactFormEmail'] }}</p>
+    <p><strong>Klausimas:</strong> {{$data ['ContacFormSubject'] }}</p>
+    <p><strong>Žinutė:</strong> {{$data ['ContactFormMessage'] }}</p>
 </body>
 </html>

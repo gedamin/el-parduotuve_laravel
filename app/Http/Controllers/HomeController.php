@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    //    STATIC pages
+    public function HomePage()
+    {
+        return view('home');
+    }
     /**
      * Create a new controller instance.
      *
@@ -21,8 +26,4 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('home');
-    }
 }

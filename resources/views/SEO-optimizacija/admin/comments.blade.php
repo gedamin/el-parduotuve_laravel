@@ -39,7 +39,8 @@
                                 <p><a href="{{ route('SEO-optimizacija.comment.edit', $comment->id) }}"
                                       class="label label-warning">Redaguoti</a></p>
                                 <p><a href="{{ route('SEO-optimizacija.comment.delete', $comment->id) }}"
-                                      class="label label-danger" onclick="return confirm('Ar tikrai norite ištrinti?')">Ištrinti</a></p>
+                                      class="label label-danger" onclick="return confirm('Ar tikrai norite ištrinti?')">Ištrinti</a>
+                                </p>
                             </td>
                         </tr>
                     @endforeach

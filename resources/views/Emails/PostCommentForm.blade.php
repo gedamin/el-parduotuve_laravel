@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Komentarų pranešimas</title>
+</head>
+<body>
+
+<h3>Pranešimas apie naują komentarą</h3>
+
+<p>Komentatoriaus vardas: {{$data ['comment_author'] }}</p>
+<p><strong>El. paštas:</strong> {{$data ['email'] }}</p>
+<p><strong>Komentaras:</strong> {{$data ['seo_post_comment'] }}</p>
+
+</body>
+</html>

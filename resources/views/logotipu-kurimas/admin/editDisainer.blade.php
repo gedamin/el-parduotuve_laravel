@@ -15,11 +15,9 @@
                         <h3><i class="fa fa-pencil"></i> Redaguoti</h3>
                     </div>
                     <div class="pull-right">
-                        <button type="submit" form="form-category" data-toggle="tooltip" title="Išsaugoti"
-                                class="btn btn-success"><i class="fa fa-save"></i></button>
+                        <button type="submit" form="form-category" data-toggle="tooltip" title="Išsaugoti" class="btn btn-success"><i class="fa fa-save"></i></button>
                         <a href="{{ route('logotipu-kurimas.admin.disainer.view') }}" data-toggle="tooltip"
-                           class="btn btn-primary" data-original-title="Atgal į sąrašą"><i class="fa fa-minus"></i>
-                            Atgal</a>
+                           class="btn btn-primary" data-original-title="Atgal į sąrašą"><i class="fa fa-minus"></i> Atgal</a>
                     </div>
                 </div>
             </div>
@@ -29,7 +27,6 @@
         </ul>
         <div class="tab-content">
             <div class="" id="tab-general">
-{{--                {{dd($disainer->disainerShort_description)}}--}}
                 <form action="{{ route('logotipu-dizaineriai.admin.update', $disainer->id) }}" method="POST"
                       enctype="multipart/form-data" id="form-category" class="form-horizontal">
                     {{ csrf_field() }}
@@ -48,43 +45,21 @@
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">Trumpas aprašymas</label>
                         <div class="col-sm-10">
-                            <input type="text" name="disainerShort_description" id="disainerShort_description"
-                                   class="form-control" value="{{ $disainer->disainerShort_description }}">
+                            <input type="text" name="disainerShort_description" id="disainerShort_description" class="form-control" value="{{ $disainer->disainerShort_description }}">
                         </div>
                     </div>
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-name">disainer_description</label>
+                        <label class="col-sm-2 control-label" for="input-name">Dizainerio aprašymas</label>
                         <div class="col-sm-10">
-{{--                            {{ dd($disainerPorfolio) }}--}}
-
-
-
-
-                            <input type="text" name="disainer_description" id="disainer_description"
-                                   class="form-control" value="{{ $disainerPorfolio->disainer_description }}">
+                            <textarea rows="8"  type="text" name="disainer_description" id="disainer_description" class="form-control">{{ $disainerPorfolio->disainer_description }}</textarea>
                         </div>
                     </div>
-
-
-
-
-
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">Avataras</label>
                         <div class="col-sm-10">
-                            <input type="file" name="disainer_avatar" id="disainer_avatar" class="form-control"
-                                   value="{{ $disainer->disainer_avatar }}">
+                            <input type="file" name="disainer_avatar" id="disainer_avatar" class="form-control" value="{{ $disainer->disainer_avatar }}">
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">Tel. Nr.</label>
                         <div class="col-sm-10">
@@ -106,38 +81,22 @@
                             </select>
                         </div>
                     </div>
+                    @if (Auth::check() && Auth::user()->isAdmin() )
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">Rūšiavimas</label>
                         <div class="col-sm-10">
                             <input type="text" name="disainer_sort" id="disainer_sort" class="form-control" value="{{ $disainer->disainer_sort }}">
                         </div>
                     </div>
-
-                    <div id="Nlogos" class="form-group">
-                        <label class="col-sm-12">@{{ this.message }}:</label>
-                        <div class="col-sm-12" v-for="a in n">
-                            <input class="form-control" name="logontasis[]" type="file" v-on:change="n++">
-                        </div>
-                    </div>
+                        @else
+                    @endif
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <input type="submit" class="btn btn-success" value="Išsaugoti"/>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.3/vue.js"></script>
-    <script>
-        new Vue({
-            el: '#Nlogos',
-            data: {
-                n: 1,
-                message: "Galite pridėti norimą kiekį pavyzdinių logotipų ar kitų atliktų grafikos darbų"
-            }
-        })
-
-    </script>
 @endsection

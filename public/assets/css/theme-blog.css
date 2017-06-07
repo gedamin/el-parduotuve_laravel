@@ -192,6 +192,15 @@ article.blog-single-post .post-meta {
 	max-width: 80px;
 }
 
+.post-author .img-thumbnail-circle img {
+	max-height: 100px;
+	max-width: 100px;
+	min-height: 100px;
+	min-width: 100px;
+
+
+}
+
 .post-author p {
 	font-size: 0.9em;
 	line-height: 22px;

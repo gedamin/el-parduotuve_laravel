@@ -6,6 +6,9 @@ use App\seoPostComment;
 use Illuminate\Http\Request;
 use App\Seopost;
 use Illuminate\Support\Facades\DB;
+use App\Mail\PostComment;
+use Mail;
+
 
 use Session;
 
@@ -117,6 +120,9 @@ class SeoPostController extends Controller
 
         //insert post data
         SeoPostComment::create($postData);
+//Send emeil on post comment:
+        $EmailInfo = $request->all();
+        Mail::to('el.parduotuve.lt@gmail.com')->send(new PostComment($EmailInfo));
 
         return redirect()->back();
     }
@@ -125,7 +131,11 @@ class SeoPostController extends Controller
 
     public function seoPostCommentsAll()
     {
-        $comments = SeoPostComment::all();
+//        $comments = SeoPostComment::all();
+
+        $comments = SeoPostComment::orderBy('id','asc')->paginate(8);
+
+
         $posts = Seopost::all();
 
 //       dd($posts);
@@ -136,7 +146,9 @@ class SeoPostController extends Controller
 
     public function seoPostComment($id)
     {
-        $posts = Seopost::find($id); //surandam konretu posta pagal id /// turi sarysi commnets MODEL
+        $posts = Seopost::find($id);
+
+        //surandam konretu posta pagal id /// turi sarysi commnets MODEL
         $comments = $posts->comments; //
 //        dd($posts->comments); //coments per MODEL sarysis
         return view('SEO-optimizacija.admin.comments', ['comments' => $comments,'posts' => $posts]);

@@ -29,7 +29,8 @@
         </ul>
         <div class="tab-content">
             <div class="" id="tab-general">
-                <form action="{{ route('SEO-optimizacija.admin.insert') }}" method="POST" enctype="multipart/form-data" id="form-category" class="form-horizontal">
+                <form action="{{ route('SEO-optimizacija.admin.insert') }}" method="POST" enctype="multipart/form-data"
+                      id="form-category" class="form-horizontal">
                     {{ csrf_field() }}
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">Pavadinimas</label>
@@ -91,7 +92,6 @@
                             <input type="submit" class="btn btn-success" value="Išsaugoti"/>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>

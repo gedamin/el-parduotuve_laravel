@@ -65,6 +65,9 @@
     <div class="container">
 
         <div class="row">
+            <div class="col-md-3">
+                @include('__include/categories')
+            </div>
             <div class="col-md-9">
                 <div class="blog-posts single-post">
                     <article class="post post-large blog-single-post">
@@ -214,11 +217,7 @@
                     </article>
                 </div>
             </div>
-            <div class="col-md-3">
-                <aside class="sidebar">
-                    @include('__include/categories')
-                </aside>
-            </div>
+
         </div>
     </div>
     @include('__include/footer')

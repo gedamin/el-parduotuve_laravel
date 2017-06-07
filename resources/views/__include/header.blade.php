@@ -5,7 +5,7 @@
                 <div class="header-column">
                     <div class="header-logo">
                         <a href="{{ url('/') }}">
-                            <img alt="www.el-parduotuve.lt" width="210" height="50" data-sticky-width="210" data-sticky-height="40" data-sticky-top="26" src="{{ url('assets/img/misc/logo.png') }}">
+                            <img alt="www.el-parduotuve.lt" width="210" height="50" data-sticky-width="210" data-sticky-height="40" data-sticky-top="26" src="{{ url('assets/img/misc/el-parduotuve.lt_logo.png') }}">
                         </a>
                     </div>
                 </div>
@@ -53,8 +53,8 @@
                             <li class="@if($active == 'index')active @endif">
                                 <a href="{{ url('/') }}">Pradžia</a>
                             </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle @if($active == 'meniuElParduotuveKurimas')active @endif " href="{{ url('elektronines-parduotuves-kurimas.php') }}">El-parduotuvės kūrimas</a>
+                            <li class="dropdown @if($active == 'meniuElParduotuveKurimas')active @endif ">
+                                <a class="dropdown-toggle" href="{{ url('elektronines-parduotuves-kurimas.php') }}">El-parduotuvės kūrimas</a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-submenu">
                                         <a href="{{ url('elektronines-parduotuves-kurimas.php') }}">El-parduotuvės kūrimas</a>
@@ -105,11 +105,11 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li >
+                            <li class="@if($active == 'meniu_AtliktiDarbai')active @endif">
                                 <a href="{{ url('atlikti-darbai.php') }}">Atlikti darbai</a>
                             </li>
 
-                            <li class="@if($active == 'meniu_kontaktai')active @endif"">
+                            <li class="@if($active == 'meniu_kontaktai')active @endif">
                                 <a class="" href="{{ url('kontaktai.php') }}">Kontaktai</a>
                             </li>
                         </ul>

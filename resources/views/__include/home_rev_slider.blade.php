@@ -25,7 +25,7 @@
                      data-x="400"
                      data-y="180"
                      data-start="1000"
-                     data-transform_in="x:[300%];opacity:0;s:500;"><img src="{{ url('assets/img/slides/slide-title-border.png') }}" alt=""></div>
+                     data-transform_in="x:[300%];opacity:0;s:500;"><img src="{{ url('assets/img/slides/slide-title-border.png') }}" alt="el-parduotuves"></div>
 
                 <div class="tp-caption main-label"
                      data-x="35"
@@ -46,31 +46,31 @@
                      data-x="910"
                      data-y="248"
                      data-start="2500"
-                     data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1300;"><img src="{{ url('assets/img/slides/slide-concept-2-1.png') }}" alt=""></div>
+                     data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1300;"><img src="{{ url('assets/img/slides/slide-concept-2-1.png') }}" alt="Internetinės parduotuvės"></div>
 
                 <div class="tp-caption"
                      data-x="960"
                      data-y="200"
                      data-start="3500"
-                     data-transform_in="y:[300%];opacity:0;s:300;"><img src="{{ url('assets/img/slides/slide-concept-2-2.png') }}" alt=""></div>
+                     data-transform_in="y:[300%];opacity:0;s:300;"><img src="{{ url('assets/img/slides/slide-concept-2-2.png') }}" alt="Internetinės parduotuvės"></div>
 
                 <div class="tp-caption"
                      data-x="930"
                      data-y="170"
                      data-start="3650"
-                     data-transform_in="y:[300%];opacity:0;s:300;"><img src="{{ url('assets/img/slides/slide-concept-2-3.png') }}" alt=""></div>
+                     data-transform_in="y:[300%];opacity:0;s:300;"><img src="{{ url('assets/img/slides/slide-concept-2-3.png') }}" alt="Internetinės parduotuvės"></div>
 
                 <div class="tp-caption"
                      data-x="880"
                      data-y="130"
                      data-start="3750"
-                     data-transform_in="y:[300%];opacity:0;s:300;"><img src="{{ url('assets/img/slides/slide-concept-2-4.png') }}" alt=""></div>
+                     data-transform_in="y:[300%];opacity:0;s:300;"><img src="{{ url('assets/img/slides/slide-concept-2-4.png') }}" alt="Elektronines parduotuves"></div>
 
                 <div class="tp-caption"
                      data-x="610"
                      data-y="80"
                      data-start="3950"
-                     data-transform_in="y:[300%];opacity:0;s:300;"><img src="{{ url('assets/img/slides/slide-concept-2-5.png') }}" alt=""></div>
+                     data-transform_in="y:[300%];opacity:0;s:300;"><img src="{{ url('assets/img/slides/slide-concept-2-5.png') }}" alt="Elektronines parduotuves"></div>
 
                 <div class="tp-caption blackboard-text"
                      data-x="590"
@@ -94,8 +94,8 @@
                      data-transform_in="y:[300%];opacity:0;s:300;">SEO klausimais !</div>
             </li>
             <li data-transition="fade">
-                <img src="{{ url('assets/img/slides/slide-bg.jpg') }}"
-                     alt=""
+                <img src="{{ url('assets/img/slides/elektroniniu-parduotuviu-kurimas.jpg') }}"
+                     alt="Elektroninių parduotuvių kūrimas"
                      data-bgposition="center center"
                      data-bgfit="cover"
                      data-bgrepeat="no-repeat"
@@ -105,7 +105,7 @@
                      data-x="55"
                      data-y="100"
                      data-start="500"
-                     data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1000;e:Power2.easeOut;"><img src="{{ url('assets/img/slides/slide-concept.png') }}" alt=""></div>
+                     data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1000;e:Power2.easeOut;"><img src="{{ url('assets/img/slides/internetiniu-parduotuviu-kurimas.png') }}" alt="Internetinių parduotuvių kūrimas"></div>
 
                 <div class="tp-caption blackboard-text"
                      data-x="185"

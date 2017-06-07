@@ -97,7 +97,6 @@
                             <input type="submit" class="btn btn-success" value="Išsaugoti"/>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>

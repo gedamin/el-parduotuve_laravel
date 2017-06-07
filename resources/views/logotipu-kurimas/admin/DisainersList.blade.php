@@ -26,7 +26,9 @@
                     <td class="text-center">Telefonas</td>
                     <td class="text-center">El.paštas</td>
                     <td class="text-center">Statusas</td>
+                    @if (Auth::check() && Auth::user()->isAdmin() )
                     <td class="text-center">Rūšiavimas</td>
+                    @endif
                     <td class="text-center">Data</td>
                     <td class="text-center">Atnaujinta</td>
                     <td class="text-right">Veiksmai</td>
@@ -52,7 +54,9 @@
                                 @endif
                             </div>
                         </td>
+                        @if (Auth::check() && Auth::user()->isAdmin() )
                         <td class="text-center">{{$disainer->disainer_sort}}</td>
+                        @endif
                         <td class="text-center">{{$disainer->created_at}}</td>
                         <td class="text-center">{{$disainer->updated_at}}</td>
                         <td class="text-right">
@@ -69,6 +73,8 @@
                 @endforeach
                 </tbody>
             </table>
+            {{ $disainers_lists->links() }}
+
         </div>
     </div>
 @endsection

@@ -11,11 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-
 Route::group(['middleware' => ['auth']], function(){
 
     Route::group(['middleware' => ['adminas']], function(){
@@ -32,8 +27,8 @@ Route::group(['middleware' => ['auth']], function(){
         Route::get('/SEO-optimizacija/comments/edit/{id}', 'SeoPostController@CommentEdit')->name('SEO-optimizacija.comment.edit');
         Route::post('/SEO-optimizacija/comments/edit/{id}', 'SeoPostController@CommentUpdate')->name('SEO-optimizacija.comment.update');
 
-
-
+        //Mail to admin on post comment
+        Route::post('/SEO-optimizacija/{id}', 'SentMailFromPostComment@PostCommentMail')->name('SEO-optimizacija.comment.insert');
         //Logo dizaineriai Admin
         Route::get('/admin/logotipu-dizaineriai', 'LogoDisainerController@LogoDisainersAdminView')->name('logotipu-kurimas.admin.disainer.view');
         Route::get('admin/logotipu-dizaineriai/edit/{id}', 'LogoDisainerController@DisainerEdit')->name('admin.logotipu-dizaineriai.edit');
@@ -43,7 +38,6 @@ Route::group(['middleware' => ['auth']], function(){
         Route::get('/admin/logotipu-dizaineriai/delete/{id}', 'LogoDisainerController@deleteDisainer')->name('logotipu-dizaineriai.admin.delete');
         //Logo portfolio CRUD CONTROLER: LogoDisainerController.php MODEL disainerslogo_img
         Route::get('/admin/logotipu-dizaineriai/logos/{id}', 'LogoDisainerController@LogoAdminListView')->name('logo.admin.list.view');
-
     });
 
     //Logo portfolio CRUD
@@ -60,31 +54,35 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/admin/logotipu-dizaineriai/logotipai/{id}', 'ImageGalleryController@index')->name('logotipu-dizaineriai.admin.ImgGalleryCRUD');
     Route::post('/admin/logotipu-dizaineriai/logotipai/{id}', 'ImageGalleryController@upload')->name('logotipu-dizaineriai.admin.ImgGalleryCRUDupload');
     Route::delete('image-gallery/{id}', 'ImageGalleryController@destroy');
-//IMAGE gallery routes END
+    //IMAGE gallery routes END
 
+    //Atlikti darbai routes START
+    Route::get('/admin/atlikti-darbai', 'DarbaiGalleryController@index')->name('AtliktiDarbaiCRUD');
+    Route::post('/admin/atlikti-darbai', 'DarbaiGalleryController@upload')->name('AtliktiDarbaiCRUDupload');
+    Route::delete('image-gallery/{id}', 'DarbaiGalleryController@destroy');
+    //Atlikti darbai routes END
 });
 
-
-//public routes:
-Route::get('/SEO-optimizacija.php', 'MainController@index');
-Route::get('/kontaktai.php', 'MainController@contacts');
-
-Route::post('/kontaktai.php', 'SentMailFromContactForm@ContactFormMail');
-
-//Temporary:
-Route::get('/SEO-optimizacija/seo-efektyviausia-reklama-internete.php', 'MainController@post');
-
-Route::get('/SEO-optimizacija/{id}', 'MainController@seoPostView');
-//For commenta
+//For comments
 Route::post('/SEO-optimizacija/{id}', 'SeoPostController@insertComent')->name('SEO-optimizacija.comment.insert');
 //Logo disainers list view
 Route::get('/logotipu-kurimas.php', 'LogoDisainerController@LogoDisainersView')->name('logotipu-kurimas.list.view');
 //Logo disainers Profiles
 Route::get('/logotipu-kurimas/{id}', 'LogoDisainerController@LogoDisainersViewPortfolio')->name('logotipu-kurimas.disainer.view');
 
+//public routes:
+Route::get('/SEO-optimizacija.php', 'MainController@index')->name('SEO-optimizacija');
+Route::get('/SEO-optimizacija/{id}', 'MainController@seoPostView');
+
+//Static Pages
+//HOME PAGE
+Route::get('/', 'MainController@HomePage')->name('home');
+
+//Contacts page
+Route::get('/kontaktai.php', 'MainController@contacts')->name('kontaktai');
+Route::post('/kontaktai.php', 'SentMailFromContactForm@ContactFormMail');
+//Porfolio page
+Route::get('/atlikti-darbai.php', 'MainController@AtliktiDarbai')->name('atlikti-darbai');
+
+
 Auth::routes();
-
-
-
-//default
-Route::get('/home', 'HomeController@index')->name('home');
