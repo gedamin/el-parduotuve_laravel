@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth']], function(){
     //IMAGE gallery routes START
     Route::get('/admin/logotipu-dizaineriai/logotipai/{id}', 'ImageGalleryController@index')->name('logotipu-dizaineriai.admin.ImgGalleryCRUD');
     Route::post('/admin/logotipu-dizaineriai/logotipai/{id}', 'ImageGalleryController@upload')->name('logotipu-dizaineriai.admin.ImgGalleryCRUDupload');
-    Route::delete('image-gallery/{id}', 'ImageGalleryController@destroy');
+    Route::delete('image-gallery/logo/{id}', 'ImageGalleryController@destroy')->name('LogoDelete');
     //IMAGE gallery routes END
 
     //Atlikti darbai routes START

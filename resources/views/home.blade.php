@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <?php $active = 'index';?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Elektroninių parduotuvių kūrimas | Internetinės parduotuvės kūrimas</title>
     <meta content="Elektroninių parduotuvių kūrimas | Internetinės parduotuvės kūrimas" property="og:title"/>
     <meta name="robots" content="INDEX,FOLLOW"/>
-    <meta name="description"
-          content="Internetinių Elektroninių parduotuvių kūrimas prieinama kaina. Savo klientams - NEMOKAMA SEO konsultacija. Jokio avanso atsiskaitymas sukūrus tinkamą el-parduotuvę!">
-    <meta content="Internetinių Elektroninių parduotuvių kūrimas prieinama kaina. Savo klientams - NEMOKAMA SEO konsultacija. Jokio avanso atsiskaitymas sukūrus tinkamą el-parduotuvę!"
-          property="og:description"/>
+    <meta name="description" content="Internetinių Elektroninių parduotuvių kūrimas prieinama kaina. Savo klientams - NEMOKAMA SEO konsultacija. Jokio avanso atsiskaitymas sukūrus tinkamą el-parduotuvę!">
+    <meta content="Internetinių Elektroninių parduotuvių kūrimas prieinama kaina. Savo klientams - NEMOKAMA SEO konsultacija. Jokio avanso atsiskaitymas sukūrus tinkamą el-parduotuvę!" property="og:description"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Elektroninių parduotuvių kūrimas"/>
     <meta content="http://www.el-parduotuve.lt/" property="og:url"/>
     <meta content="{{ url('assets/img/misc/logo.png') }}" property="og:image"/>
-    <link rel="canonical" href="http://www.el-parduotuve.lt/index.php"/>
+    <link rel="canonical" href="{{route('home')}}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="author" content="Gediminas">
     <!-- Twiter-->
@@ -23,10 +20,10 @@
     <meta name="twitter:site" content="@elparduotuve">
     <meta name="twitter:creator" content="@elparduotuve">
     <meta name="twitter:title" content="Elektroninių parduotuvių kūrimas | www.el-parduotuve.lt">
-    <meta name="twitter:description"
-          content="Internetinių Elektroninių parduotuvių kūrimas prieinama kaina. Savo klientams - NEMOKAMA SEO konsultacija. Jokio avanso atsiskaitymas sukūrus tinkamą el-parduotuvę!">
+    <meta name="twitter:description" content="Internetinių Elektroninių parduotuvių kūrimas prieinama kaina. Savo klientams - NEMOKAMA SEO konsultacija. Jokio avanso atsiskaitymas sukūrus tinkamą el-parduotuvę!">
     <meta name="twitter:image" content="{{ url('assets/img/misc/logo.png') }}" title="www.el-parduotuve.lt">
     @include('__include/head-no-seo')
+    <?php $active = 'index';?>
 </head>
 <body>
 <div class="body">
@@ -43,7 +40,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="get-started">
-                            <a href="http://www.el-parduotuve.lt/kontaktai.php" class="btn btn-lg btn-primary">Susisiekite
+                            <a href="{{route('kontaktai')}}" class="btn btn-lg btn-primary">Susisiekite
                                 dabar!</a>
                             <div class="learn-more">arba <a
                                         href="http://www.el-parduotuve.lt/elektronines-parduotuves-kurimas/elektronines-parduotuves-galimybes.php">sužinokite
@@ -200,7 +197,7 @@
                                     <circle fill="none" stroke="#FFF" stroke-width="0.50" stroke-miterlimit="10"
                                             stroke-dasharray="1,2.5" cx="19.5" cy="19.5" r="19.063"/>
 										</svg>
-                                <img src="{{ url('assets/img/temp/home-concept-item-1.png') }}" alt=""
+                                <img src="{{ url('assets/img/home/poreikis.png') }}" alt="e-parduotuves poreikis"
                                      class="appear-animation" data-appear-animation="zoomIn"
                                      data-appear-animation-duration="300" data-appear-animation-delay="1400"/>
                             </div>
@@ -221,7 +218,7 @@
                                     <circle fill="none" stroke="#FFF" stroke-width="0.50" stroke-miterlimit="10"
                                             stroke-dasharray="1,2.5" cx="19.5" cy="19.5" r="19.063"/>
 										</svg>
-                                <img src="{{ url('assets/img/temp/home-concept-item-2.png') }}" alt=""
+                                <img src="{{ url('assets/img/home/sutartis.png') }}" alt="el-parduotuves sutaris"
                                      class="appear-animation" data-appear-animation="zoomIn"
                                      data-appear-animation-duration="300" data-appear-animation-delay="1900"/>
                             </div>
@@ -242,7 +239,7 @@
                                     <circle fill="none" stroke="#FFF" stroke-width="0.50" stroke-miterlimit="10"
                                             stroke-dasharray="1,2.5" cx="19.5" cy="19.5" r="19.063"/>
 										</svg>
-                                <img src="{{ url('assets/img/temp/home-concept-item-3.png') }}" alt=""
+                                <img src="{{ url('assets/img/home/programavimas.png') }}" alt="parduotuves programavimas"
                                      class="appear-animation" data-appear-animation="zoomIn"
                                      data-appear-animation-duration="300" data-appear-animation-delay="2400"/>
                             </div>
@@ -267,15 +264,18 @@
                                      data-appear-animation="zoomIn" data-appear-animation-duration="300"
                                      data-appear-animation-delay="2900">
                                     <ul class="fc-slides">
-                                        <li><a href="portfolio-single-small-slider.html"><img class="img-responsive"
-                                                                                              src="{{ url('assets/img/temp/project-home-1.jpg') }}"
-                                                                                              alt=""/></a></li>
-                                        <li><a href="portfolio-single-small-slider.html"><img class="img-responsive"
-                                                                                              src="{{ url('assets/img/temp/project-home-2.jpg') }}"
-                                                                                              alt=""/></a></li>
-                                        <li><a href="portfolio-single-small-slider.html"><img class="img-responsive"
-                                                                                              src="{{ url('assets/img/temp/project-home-3.jpg') }}"
-                                                                                              alt=""/></a></li>
+                                        <li><a href="{{route('atlikti-darbai')}}"><img class="img-responsive"
+                                                                                              src="{{ url('assets/img/home/atliktas-darbas.png') }}"
+                                                                                              alt="e-parduotuves kurimass"/></a></li>
+                                        <li><a href="{{route('atlikti-darbai')}}"><img class="img-responsive"
+                                                                                              src="{{ url('assets/img/home/atliktas-darbas-2.png') }}"
+                                                                                              alt="e-parduotuves kurimass"/></a></li>
+                                        <li><a href="{{route('atlikti-darbai')}}"><img class="img-responsive"
+                                                                                              src="{{ url('assets/img/home/atliktas-darbas-3.png') }}"
+                                                                                              alt="e-parduotuves kurimass"/></a></li>
+                                        <li><a href="{{route('atlikti-darbai')}}"><img class="img-responsive"
+                                                                                              src="{{ url('assets/img/home/atliktas-darbas-4.png') }}"
+                                                                                              alt="e-parduotuves kurimass"/></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -523,7 +523,7 @@
                         kad web parduotuvės kūrimas, iš esmės, tai verslo pagalbininko susikūrimas, kadangi,
                         internetinės parduotuvės - tai tokios automatizuotos sistemos, kurios priima užsakymus,
                         apskaičiuoja užsakymų kainas, veda apskaitas, informuoja visus Jūsų klientus, apie nuolaidas ir
-                        dar daugiau. Susisiekite su mumis ir mes Jums pateiksime geriausius pasiūlymus.</p>
+                            dar daugiau. Susisiekite su mumis ir mes Jums pateiksime geriausius pasiūlymus.</p>
                 </div>
             </div>
             <div class="row">

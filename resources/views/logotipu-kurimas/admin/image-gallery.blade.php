@@ -70,7 +70,7 @@
                                 <small class='text-muted'>{{ $image->type }}</small>
                             </div> <!-- text-center / end -->
                         </a>
-                        <form action="{{ url('image-gallery',$image->id) }}" method="POST">
+                        <form action="{{ route('LogoDelete',$image->id) }}" method="POST">
                             <input type="hidden" name="_method" value="delete">
                             {!! csrf_field() !!}
                             <button type="submit" class="close-icon btn btn-danger"><i class="fa fa-times"></i></button>

@@ -65,13 +65,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="post-block post-author clearfix">
-                        <h3 class="heading-primary"><i class="fa fa-user"></i>{{ $disainerPorfolio->disainer_title }}
-                        </h3>
-                        <div class="img-thumbnail img-thumbnail-circle">
+                        <div class="img-thumbnail">
                             <img src="/storage/disainer/{{ $disainerPorfolio->disainer_avatar }}"
                                  alt="{{ $disainerPorfolio->disainer_name }}">
                         </div>
-                        <p><strong class="name">{{ $disainerPorfolio->disainer_name }}</strong></p>
+                        <p><i class="fa fa-user"></i> <strong class="name">{{ $disainerPorfolio->disainer_name }}</strong></p>
                         <p>{{$disainerPorfolio->LogoDisainerList->disainer_description}} </p>
                     </div>
                 </div>
@@ -82,8 +80,8 @@
                                     href="mailto:{{$disainerPorfolio->disainer_email}}"> {{$disainerPorfolio->disainer_email}}</a>
                         </li>
                     </ul>
+                    <hr class="tall">
                 </div>
-                <hr>
                 <div class="col-md-12">
                     <div class="sort-destination-loader-showing">
                         <ul class="image-gallery sort-destination lightbox" data-sort-id="portfolio"

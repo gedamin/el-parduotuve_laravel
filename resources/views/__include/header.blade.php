@@ -95,13 +95,13 @@
                                 </ul>
                             </li>
                             <li class="dropdown @if($active == 'meniu_SEO-optimizacija')active @endif">
-                                <a class="dropdown-toggle" href="{{ url('SEO-optimizacija.php') }}">SEO</a>
+                                <a class="dropdown-toggle" href="{{ url('SEO-optimizacija.php') }}">SEO OPTIMIZACIJA</a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ url('SEO-optimizacija.php') }}">SEO</a>
+                                        <a href="{{ url('SEO-optimizacija.php') }}">SEO optimizacija el-parduotuvei</a>
                                     </li>
                                     <li>
-                                        <a href="http://www.seopaslaptys.lt/index.php">Detali SEO</a>
+                                        <a target="_blank" href="http://www.seopaslaptys.lt/index.php">Detaliau apie SEO - seopaslaptys.lt</a>
                                     </li>
                                 </ul>
                             </li>

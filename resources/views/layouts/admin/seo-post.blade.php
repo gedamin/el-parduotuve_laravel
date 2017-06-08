@@ -52,7 +52,7 @@
         <div><a class="dropdown-toggle" data-toggle="dropdown"><img src="{{ url('assets/img/ico/avatar.png') }}"  alt="{{ Auth::user()->name }}" title="{{ Auth::user()->name }}" class="img-circle" width="40"/></a></div>
         <div>
             <h4>{{ Auth::user()->name }}{{ Auth::user()->lastname }}</h4>
-            <small>Administratorius</small>
+            <small>{{ Auth::user()->email }}</small>
         </div>
     </div>
     <ul id="menu">

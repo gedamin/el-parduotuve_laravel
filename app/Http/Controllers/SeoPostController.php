@@ -9,20 +9,14 @@ use Illuminate\Support\Facades\DB;
 use App\Mail\PostComment;
 use Mail;
 
-
 use Session;
 
 class SeoPostController extends Controller
 {
     public function index()
     {
-        //fetch all posts data
-        //$posts = Seopost::all();
         $posts = Seopost::orderBy('created','desc')->paginate(8);
-
-
         //pass posts data to view and load list view
-
         $comments = SeoPostComment::all();
         //SESSION MESAGGE
         $message = session()->get('message');
@@ -30,17 +24,15 @@ class SeoPostController extends Controller
        return view('/SEO-optimizacija/admin.index', ['posts' => $posts, 'comments' => $comments, 'message' => $message ]);
     }
 
-
     public function edit($id)
     {
-        //get post data by id
         $post = Seopost::find($id);
         //load form view
         return view('/SEO-optimizacija/admin.edit', ['post' => $post]);
     }
 
     public function update($id, Request $request){
-        //validate post data
+
         $this->validate($request, [
             'title' => 'required | min:3',
 //            'img' => 'required',
@@ -85,8 +77,6 @@ class SeoPostController extends Controller
         return view('/SEO-optimizacija/admin.add', ['post' => $posts]);
     }
 
-
-
     public function delete($id){
 //        Seopost::find($id)->delete($id);
 
@@ -99,14 +89,11 @@ class SeoPostController extends Controller
         Seopost::find($id)->delete($id);
         unlink(storage_path('app/public/seo_post_img/' . $PostFileName));
 
-
         return redirect()->route('SEO-optimizacija.admin.index');
     }
 
     public function insertComent($id, Request $request){
         $comments = SeoPostComment::find($id);
-        //validate post data
-//        dd('$coments');
 
         $this->validate($request, [
             'comment_author' => 'required',
@@ -114,9 +101,7 @@ class SeoPostController extends Controller
         ]);
         //get post data
         $postData = $request->all();
-//        dump($postData);
         $postData ['seo_post_id']= $id;
-//        dd($postData);
 
         //insert post data
         SeoPostComment::create($postData);
@@ -131,23 +116,16 @@ class SeoPostController extends Controller
 
     public function seoPostCommentsAll()
     {
-//        $comments = SeoPostComment::all();
-
         $comments = SeoPostComment::orderBy('id','asc')->paginate(8);
-
-
         $posts = Seopost::all();
-
 //       dd($posts);
 
         return view('SEO-optimizacija.admin.AllComments', ['comments' => $comments,'posts' => $posts]);
     }
 
-
     public function seoPostComment($id)
     {
         $posts = Seopost::find($id);
-
         //surandam konretu posta pagal id /// turi sarysi commnets MODEL
         $comments = $posts->comments; //
 //        dd($posts->comments); //coments per MODEL sarysis
@@ -168,11 +146,10 @@ class SeoPostController extends Controller
     }
 
     public function CommentUpdate($id, Request $request){
-
         //get data
         $CommentData = $request->all();
         //update data
        SEOPostComment::find($id)->update($CommentData);
-        return redirect()->route('SEO-optimizacija.comments.list.all');
+       return redirect()->route('SEO-optimizacija.comments.list.all');
     }
 }
