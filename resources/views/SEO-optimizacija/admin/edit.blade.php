@@ -71,6 +71,12 @@
                                    value="{{ $post->author }}">
                         </div>
                     </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-name">URL:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="slug" id="slug" class="form-control" value="{{ $post->slug }}">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="input-name">Meta title:</label>
                         <div class="col-sm-10">

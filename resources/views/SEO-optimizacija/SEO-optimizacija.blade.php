@@ -116,7 +116,7 @@
                                             <div>
                                                 <div>
                                                     <div class="img-thumbnail">
-                                                        <a href="{{ url('SEO-optimizacija',$post->id) }}"><img
+                                                        <a href="{{ url('SEO-optimizacija',$post->slug) }}"><img
                                                                     class="img-responsive"
                                                                     src="/storage/seo_post_img/{{$post->img}}"
                                                                     alt="{{$post->title}}"></a>
@@ -128,7 +128,7 @@
                                     <div class="col-md-7">
                                         <div class="post-content">
                                             <h3 class="mb-xs"><a
-                                                        href="{{ url('SEO-optimizacija',$post->id) }}">{{$post->title}}</a>
+                                                        href="{{ url('SEO-optimizacija',$post->slug) }}">{{$post->title}}</a>
                                             </h3>
                                             <p class="justify">{!! $post->short_conten !!}</p>
                                         </div>
@@ -141,9 +141,9 @@
                                             <span><i class="fa fa-user"></i> Parengė <a
                                                         href="https://plus.google.com/u/0/117284839973334834336?rel=author">{{$post->author}}</a> </span>
                                             <span><i class="fa fa-comments"></i> <a
-                                                        href="{{ url('SEO-optimizacija',$post->id) }}">{{count($post->comments)}}
+                                                        href="{{ url('SEO-optimizacija',$post->slug) }}">{{count($post->comments)}}
                                                     Komentarų</a></span>
-                                            <a href="{{ url('SEO-optimizacija',$post->id) }}"
+                                            <a href="{{ url('SEO-optimizacija',$post->slug) }}"
                                                class="btn btn-xs btn-primary pull-right">Detaliau...</a>
                                         </div>
                                     </div>

@@ -72,7 +72,12 @@ Route::get('/logotipu-kurimas/{id}', 'LogoDisainerController@LogoDisainersViewPo
 
 //public routes:
 Route::get('/SEO-optimizacija.php', 'MainController@index')->name('SEO-optimizacija');
-Route::get('/SEO-optimizacija/{id}', 'MainController@seoPostView');
+
+
+//Route::get('/SEO-optimizacija/{id}', 'MainController@seoPostView');
+Route::get('SEO-optimizacija/{slug}', 'MainController@seoPostView')->name('blog.single')->where('slug', '[\w\d\-\_]+');
+
+
 
 //Static Pages
 //HOME PAGE

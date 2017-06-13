@@ -19,11 +19,48 @@ class MainController extends Controller
         $posts = Seopost::orderBy('created','desc')->paginate(8);
         return view('SEO-optimizacija.SEO-optimizacija', ['posts' => $posts]);
     }
-    public function seoPostView($id)
+    public function seoPostView($slug)
     {
-        $posts = Seopost::find($id);
-        return view('SEO-optimizacija.seoPostView', ['posts' => $posts]);
+
+//        $posts = Seopost::find($id); //vekiantis buvo
+        $posts = Seopost::where('slug', '=', $slug) -> first();
+//        dd($posts);
+
+
+//        return view('SEO-optimizacija.seoPostView', ['posts' => $posts]);
+          return view('SEO-optimizacija.seoPostView', ['posts' => $posts]) -> withPost($posts);
     }
+
+
+
+
+//    public function getSingle($slug) {        // fech from the db based on slug
+//        $post = Post::where('slug', '=', $slug) -> first();        //return the slug and pass in the post object
+//        return view('blog.single') -> withPost($post);
+//    }
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -58,6 +58,8 @@ class SeoPostController extends Controller
 //            'content' => 'required',
             'img' => 'required'
         ]);
+
+        //https://www.youtube.com/watch?v=N_i3UFw0_84
         //get post data
         $postData = $request->all();
         $file = $request->file('img');
@@ -86,7 +88,7 @@ class SeoPostController extends Controller
         $PostFileName = $deletePost->img;
 //        dd($PostFileName);
 
-        Seopost::find($id)->delete($id);
+        Seopost::find($id)->delete();
         unlink(storage_path('app/public/seo_post_img/' . $PostFileName));
 
         return redirect()->route('SEO-optimizacija.admin.index');

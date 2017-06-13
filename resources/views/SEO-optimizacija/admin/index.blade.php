@@ -46,7 +46,7 @@
                                       class="label label-info">Komentarai ({{count($post->comments)}})</a></p>
                                 <p><a href="{{ route('SEO-optimizacija.admin.edit', $post->id) }}"
                                       class="label label-warning">Redaguoti</a></p>
-                                <p><a href="{{ url('SEO-optimizacija',$post->id) }}" class="label label-success"
+                                <p><a href="{{ url('SEO-optimizacija',$post->slug) }}" class="label label-success"
                                       target="_blank">Peržiūrėti</a></p>
                                 <p><a href="{{ route('SEO-optimizacija.admin.delete', $post->id) }}"
                                       class="label label-danger" onclick="return confirm('Are you sure to delete?')">Ištrinti</a>
