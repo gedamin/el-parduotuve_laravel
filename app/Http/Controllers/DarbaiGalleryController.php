@@ -27,8 +27,8 @@ class DarbaiGalleryController extends Controller
         ]);
 
         $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
-//        $request->image->move(public_path('images'), $input['image']);
-        $request->image->move(storage_path('app/public/images/darbai'), $input['image']);
+        $request->image->move(public_path('images/darbai'), $input['image']);
+//        $request->image->move(storage_path('app/public/images/darbai'), $input['image']);
         $input['type'] = $request->type;
         $input['link'] = $request->link;
         $input['title'] = $request->title;
@@ -38,7 +38,7 @@ class DarbaiGalleryController extends Controller
             ->with('success','Įkelta.');
     }
 
-    /**
+    /**$path = $request->photo->storeAs('images', 'filename.jpg');
      *
      * Remove Image function
      *
@@ -50,7 +50,8 @@ class DarbaiGalleryController extends Controller
         $darbas = DarbaiGallery::find($id);
         $darboFileName = $darbas->image;
         DarbaiGallery::find($id)->delete();
-        unlink(storage_path('app/public/images/darbai/' . $darboFileName));
+//        unlink(storage_path('app/public/images/darbai/' . $darboFileName));
+        unlink(public_path('images/darbai/' . $darboFileName));
 
         return back()
             ->with('success','Pašalinta.');

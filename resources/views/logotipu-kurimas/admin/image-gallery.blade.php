@@ -63,8 +63,8 @@
             @if($images->count())
                 @foreach($images as $image)
                     <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                        <a class="thumbnail fancybox" rel="ligthbox" href="/storage/images/{{ $image->image }}">
-                            <img class="img-responsive" alt="" src="/storage/images/{{ $image->image }}"/>
+                        <a class="thumbnail fancybox" rel="ligthbox" href="/images/logotipai/{{ $image->image }}">
+                            <img class="img-responsive" alt="" src="/images/logotipai/{{ $image->image }}"/>
                             <div class='text-center'>
                                 <small class='text-muted'>{{ $image->title }}</small>
                                 <small class='text-muted'>{{ $image->type }}</small>

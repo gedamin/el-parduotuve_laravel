@@ -75,8 +75,8 @@
             @if($images->count())
                 @foreach($images as $image)
                     <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                        <a class="thumbnail fancybox" rel="ligthbox" href="/storage/images/darbai/{{ $image->image }}">
-                            <img class="img-responsive" alt="" src="/storage/images/darbai/{{ $image->image }}"/>
+                        <a class="thumbnail fancybox" rel="ligthbox" href="/images/darbai/{{ $image->image }}">
+                            <img class="img-responsive" alt="" src="/images/darbai/{{ $image->image }}"/>
                         </a>
                         <div class='text-center'>
                             <p class='text-muted'>{{ $image->title }}</p>

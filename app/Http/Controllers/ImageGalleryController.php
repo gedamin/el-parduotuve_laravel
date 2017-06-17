@@ -34,8 +34,8 @@ class ImageGalleryController extends Controller
         ]);
 
         $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
-//        $request->image->move(public_path('images'), $input['image']);
-        $request->image->move(storage_path('app/public/images'), $input['image']);
+        $request->image->move(public_path('images/logotipai'), $input['image']);
+//        $request->image->move(storage_path('app/public/images'), $input['image']);
 
         $input['title'] = $request->title;
         $input['type'] = $request->type;

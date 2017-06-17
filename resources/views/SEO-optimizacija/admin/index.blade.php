@@ -35,7 +35,7 @@
                             <td class="text-center">{{$post->id}}</td>
                             <td class="text-center">{{$post->title}}</td>
                             <td class="text-center">
-                                <div><img src="/storage/seo_post_img/{{$post->img}}" width="70" height="auto"></div>
+                                <div><img src="/images/seo_post_img/{{$post->img}}" width="70" height="auto"></div>
                             </td>
                             <td class="text-center">{{strip_tags(str_limit($post->short_conten, 125))}} [...]</td>
                             <td class="text-center">{{strip_tags(str_limit($post->content, 325))}} [...]</td>

@@ -11,9 +11,9 @@
     <meta content="{{$posts->meta_description}}" property="og:description"/>
     <meta property="og:type" content="website"/>
 
-    <meta content="{{ url('SEO-optimizacija',$posts->id) }}" property="og:url"/>
+    <meta content="{{ url('SEO-optimizacija',$posts->slug) }}" property="og:url"/>
     <meta content="{{ url('assets/img/misc/logo.png') }}" property="og:image"/>
-    <link rel="canonical" href="{{ url('SEO-optimizacija',$posts->id) }}"/>
+    <link rel="canonical" href="{{ url('SEO-optimizacija',$posts->slug) }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="author" content="{{ $posts->author }}">
     <!-- Twiter-->
@@ -29,7 +29,7 @@
 
     @include('__include/head-no-seo')
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/WebPage">
 <div class="body">
     @include('__include/header')
     <section class="page-header">
@@ -70,10 +70,16 @@
             </div>
             <div class="col-md-9">
                 <div class="blog-posts single-post">
-                    <article class="post post-large blog-single-post">
+                    <article class="post post-large blog-single-post" itemscope itemtype="http://schema.org/Article">
+                        <meta itemprop="discussionUrl" content="{{ url('SEO-optimizacija',$posts->slug) }}" />
+                        <meta itemprop="interactionCount" content="UserComments:{{count($posts->comments)}}" />
+                        <meta itemprop="datePublished" content="{{$posts->created}}" />
+                        <meta itemprop="dateModified" content="{{$posts->modified}}" />
+                        <meta itemprop="section" content="SEO optimizacija" />
+                        <meta itemprop="isAccessibleForFree" content="true" />
                         <div class="post-image center">
                             <div class="img-thumbnail">
-                                <img class="img-responsive" src="/storage/seo_post_img/{{$posts->img}}" alt="{{$posts->title}}">
+                                <img itemprop="image"  class="img-responsive" src="/images/seo_post_img/{{$posts->img}}" alt="{{$posts->title}}">
                             </div>
                         </div>
                         <div class="post-date">
@@ -125,15 +131,18 @@
                         </div>
                         <div class="post-content">
 
-                            <h2>{{$posts->title}}</h2>
+                            <h2 itemprop="name">{{$posts->title}}</h2>
 
                             <div class="post-meta">
                                 <span><i class="fa fa-calendar"></i> {{$posts->created->format('Y-m-d')}}</span>
                                 <span><i class="fa fa-user"></i> Parengė <a
-                                            href="https://plus.google.com/u/0/117284839973334834336?rel=author">{{$posts->author}}</a> </span>
+                                            href="https://plus.google.com/u/0/117284839973334834336?rel=author"><span itemprop="author">{{$posts->author}}</span></a> </span>
                                 <span><i class="fa fa-comments"></i> <a
-                                            href="{{ url('SEO-optimizacija',$posts->id) }}#cmt">{{count($posts->comments)}}
-                                        Komentarų</a></span>
+                                            href="{{ url('SEO-optimizacija',$posts->id) }}#cmt">{{ $posts->comments->where("is_active_comment", 0)->count() }}
+                                        Komentarai</a></span>
+
+
+
                             </div>
                             @yield('content')
                             <div id="cmt" class="post-block post-share">
@@ -151,7 +160,7 @@
                             {{--Comment begin--}}
                             <div class="post-block post-comments clearfix">
                                 <h3 class="heading-primary"><i class="fa fa-comments"></i>Komentarai
-                                    ({{count($posts->comments)}})</h3>
+                                    ({{ $posts->comments->where("is_active_comment", 0)->count() }})</h3>
 
                                 @foreach($posts->comments as $comment)
                                     @if(($comment->is_active_comment) == 0)
@@ -175,6 +184,10 @@
                                     @else
                                     @endif
                                 @endforeach
+                                <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+                                    <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+                                    <meta itemprop="userInteractionCount" content="{{count($posts->comments)}}" />
+                                </div>
                             </div>
                             {{--Comment End--}}
                             <div class="post-block post-leave-comment">

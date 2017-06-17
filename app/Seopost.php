@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Seopost extends Model
 {
     public $table = 'seo_posts';
-    protected $fillable = ['title', 'img', 'content','short_conten', 'author', 'meta_title', 'meta_description', 'twiter_creator', 'slug'  ];
+    protected $fillable = ['title', 'img', 'content','short_conten', 'author', 'meta_title', 'meta_description', 'twiter_creator', 'slug'];
 
     //custom timestamps name
     const CREATED_AT = 'created';

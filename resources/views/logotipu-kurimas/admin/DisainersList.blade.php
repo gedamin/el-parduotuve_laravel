@@ -38,7 +38,7 @@
                 @foreach($disainers_lists as $disainer)
                     <tr>
                         <td class="text-center">{{$disainer->id}}</td>
-                        <td class="text-center"><img src="/storage/disainer/{{$disainer->disainer_avatar}}" width="70"
+                        <td class="text-center"><img src="/images/disainer_avatar/{{$disainer->disainer_avatar}}" width="70"
                                                      height="auto"></td>
                         <td class="text-center">{{$disainer->disainer_name}}</td>
                         <td class="text-center">{{$disainer->disainer_title}}</td>
@@ -63,7 +63,7 @@
                             <p><a href="{{ route('logotipu-dizaineriai.admin.ImgGalleryCRUD', $disainer->id) }}" class="label label-info">Įkelti Logotipus</a></p>
                             <p><a href="{{ url('admin/logotipu-dizaineriai/edit', $disainer->id) }}"
                                   class="label label-warning">Redaguoti</a></p>
-                            <p><a href="{{ route('logotipu-kurimas.disainer.view', $disainer->id) }}"
+                            <p><a href="{{ route('logotipu-kurimas.disainer.view', $disainer->slug) }}"
                                   class="label label-success" target="_blank">Peržiūrėti</a></p>
                             <p><a href="{{ url ('/admin/logotipu-dizaineriai/delete',$disainer->id ) }}"
                                   class="label label-danger"

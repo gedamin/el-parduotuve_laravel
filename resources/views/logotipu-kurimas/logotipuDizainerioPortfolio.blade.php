@@ -27,7 +27,7 @@
     <!-- END of Twiter-->
     @include('__include/head-no-seo')
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/WebPage">
 <div class="body">
     @include('__include/header')
     <div role="main" class="main">
@@ -66,7 +66,7 @@
                 <div class="col-md-12">
                     <div class="post-block post-author clearfix">
                         <div class="img-thumbnail">
-                            <img src="/storage/disainer/{{ $disainerPorfolio->disainer_avatar }}"
+                            <img src="/images/disainer_avatar/{{ $disainerPorfolio->disainer_avatar }}"
                                  alt="{{ $disainerPorfolio->disainer_name }}">
                         </div>
                         <p><i class="fa fa-user"></i> <strong class="name">{{ $disainerPorfolio->disainer_name }}</strong></p>
@@ -92,7 +92,7 @@
                                         <a href="/storage/images/{{ $LogoImage->image }}" class="lightbox-portfolio">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper">
-															<img src="/storage/images/{{ $LogoImage->image }}"
+															<img src="/images/logotipai/{{ $LogoImage->image }}"
                                                                  class="img-responsive" alt="{{ $LogoImage->title }}">
 															<span class="thumb-info-title">
 																<span class="thumb-info-inner">{{ $LogoImage->title }}</span>

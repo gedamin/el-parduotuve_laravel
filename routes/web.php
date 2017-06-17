@@ -68,7 +68,8 @@ Route::post('/SEO-optimizacija/{id}', 'SeoPostController@insertComent')->name('S
 //Logo disainers list view
 Route::get('/logotipu-kurimas.php', 'LogoDisainerController@LogoDisainersView')->name('logotipu-kurimas.list.view');
 //Logo disainers Profiles
-Route::get('/logotipu-kurimas/{id}', 'LogoDisainerController@LogoDisainersViewPortfolio')->name('logotipu-kurimas.disainer.view');
+//Route::get('/logotipu-kurimas/{id}', 'LogoDisainerController@LogoDisainersViewPortfolio')->name('logotipu-kurimas.disainer.view'); //veikiantis buvo slug pagal id
+Route::get('/logotipu-kurimas/{slug}', 'LogoDisainerController@LogoDisainersViewPortfolio')->name('logotipu-kurimas.disainer.view')->where('slug', '[\w\d\-\_]+');
 
 //public routes:
 Route::get('/SEO-optimizacija.php', 'MainController@index')->name('SEO-optimizacija');
@@ -88,6 +89,7 @@ Route::get('/kontaktai.php', 'MainController@contacts')->name('kontaktai');
 Route::post('/kontaktai.php', 'SentMailFromContactForm@ContactFormMail');
 //Porfolio page
 Route::get('/atlikti-darbai.php', 'MainController@AtliktiDarbai')->name('atlikti-darbai');
+Route::get('/elektronines-parduotuves-kurimas.php', 'MainController@ElektroninesParduotuvesKurimas')->name('elektronines-parduotuves-kurimas');
 
 
 Auth::routes();

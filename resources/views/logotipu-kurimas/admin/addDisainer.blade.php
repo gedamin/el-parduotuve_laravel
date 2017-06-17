@@ -44,6 +44,13 @@
                         </div>
                     </div>
                     <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-name">URL:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="slug" id="slug" class="form-control" value="">
+                            <span>URL plėtinys rašomas be tarpų, nenaudojant Lietuviškų raidžių ir spec. simbolių, o žodžiai atskiriami brūkšneliu. URL plėtinio pavyzdys: <strong>logotipo-dizaineris-jonas</strong> ir tuomet Jūsų portfolio URL bus: www.el-parduotuve.lt/logotipu-kurimas/logotipo-dizaineris-jonas </span><br/>
+                        </div>
+                    </div>
+                    <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">Trumpas aprašymas</label>
                         <div class="col-sm-10">
                             <input type="text" name="disainerShort_description" id="disainerShort_description" class="form-control" value="">

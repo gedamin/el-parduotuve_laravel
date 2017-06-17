@@ -29,7 +29,7 @@
     <!-- END of Twiter-->
     @include('__include/head-no-seo')
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/WebPage">
 <div class="body">
     @include('__include/header')
     <div role="main" class="main">
@@ -118,7 +118,7 @@
                                                     <div class="img-thumbnail">
                                                         <a href="{{ url('SEO-optimizacija',$post->slug) }}"><img
                                                                     class="img-responsive"
-                                                                    src="/storage/seo_post_img/{{$post->img}}"
+                                                                    src="/images/seo_post_img/{{$post->img}}"
                                                                     alt="{{$post->title}}"></a>
                                                     </div>
                                                 </div>
@@ -141,7 +141,7 @@
                                             <span><i class="fa fa-user"></i> Parengė <a
                                                         href="https://plus.google.com/u/0/117284839973334834336?rel=author">{{$post->author}}</a> </span>
                                             <span><i class="fa fa-comments"></i> <a
-                                                        href="{{ url('SEO-optimizacija',$post->slug) }}">{{count($post->comments)}}
+                                                        href="{{ url('SEO-optimizacija',$post->slug) }}">{{ $post->comments->where("is_active_comment", 0)->count() }}
                                                     Komentarų</a></span>
                                             <a href="{{ url('SEO-optimizacija',$post->slug) }}"
                                                class="btn btn-xs btn-primary pull-right">Detaliau...</a>

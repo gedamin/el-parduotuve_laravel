@@ -21,14 +21,19 @@ class LogoDisainerController extends Controller
 //        disainers_lists - nurodau blade koks bus kintamasisi
     }
 
-    public function LogoDisainersViewPortfolio($id)
+//    public function LogoDisainersViewPortfolio($id) //veikianti buvo slug pagal id
+    public function LogoDisainersViewPortfolio($slug)
     {
-        $disainerPorfolio = LogoDisainer::find($id);
+//        $disainerPorfolio = LogoDisainer::find($id); slug pagal id
+        $disainerPorfolio = LogoDisainer::where('slug', '=', $slug) -> first();
 //        dd($disainerPorfolio);
         $disainerImages = disainerslogo_image::all();
 //        dd($disainerImages);
 
-        return view('logotipu-kurimas.logotipuDizainerioPortfolio', ['disainerPorfolio' => $disainerPorfolio, 'disainerImages' => '$disainerImages', 'dInfoDesc' => '$dInfoDesc']);
+//        return view('logotipu-kurimas.logotipuDizainerioPortfolio', ['disainerPorfolio' => $disainerPorfolio, 'disainerImages' => '$disainerImages', 'dInfoDesc' => '$dInfoDesc']); //veikainti buvo slug pagal id
+
+        return view('logotipu-kurimas.logotipuDizainerioPortfolio', ['disainerPorfolio' => $disainerPorfolio, 'disainerImages' => '$disainerImages', 'dInfoDesc' => '$dInfoDesc']) -> withPost($disainerPorfolio);
+
 //        disainerPorfolio - nurodau blade koks bus kintamasisi
     }
 
@@ -67,13 +72,15 @@ class LogoDisainerController extends Controller
     public function DisainerUpdate($id, Request $request){
         //validate post data
         $this->validate($request, [
-//            'disainer_name' => 'required | min:3',
-//            'disainer_title' => 'required | min:3',
+            'disainer_name' => 'required | min:3',
+            'disainer_title' => 'required | min:3',
 //            'disainerShort_description' => 'required | min:20',
-//            'disainer_avatar' => 'required',
+//            'disainer_avatar' => 'required', buvo veikiantis
+            'disainer_avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 //            'content' => 'required',
-//            'isainer_phone' => 'required',
-//            'disainer_email' => 'required',
+            'disainer_phone' => 'required',
+            'disainer_email' => 'required',
+            'slug' => 'required',
 //            'is_active_disainer' => 'required'
         ]);
 
@@ -82,21 +89,29 @@ class LogoDisainerController extends Controller
         //vietoje all galima nurodyti konkrecias reiksmes
 
         if (Auth::check() && Auth::user()->isAdmin() ) {
-            $disainerData = $request->only(['disainer_name', 'disainer_title', 'disainerShort_description', 'disainer_phone', 'disainer_email', 'is_active_disainer', 'disainer_sort' ]);
-        }else {
-            $disainerData = $request->only(['disainer_name', 'disainer_title', 'disainerShort_description', 'disainer_phone', 'disainer_email', 'is_active_disainer' ]);
+                $disainerData = $request->only(['disainer_name', 'disainer_title', 'disainerShort_description', 'disainer_phone', 'disainer_email', 'is_active_disainer', 'disainer_sort', 'slug']);
+            }else {
+                $disainerData = $request->only(['disainer_name', 'disainer_title', 'disainerShort_description', 'disainer_phone', 'disainer_email', 'is_active_disainer', 'slug' ]);
+        }
+
+        if ($request->hasFile('disainer_avatar')) {
+
+            $fileName = time().'.'.$request->file('disainer_avatar')->getClientOriginalExtension();
+            $request->file('disainer_avatar')->move(public_path('images/disainer_avatar'),time().'.'.$request->file('disainer_avatar')->getClientOriginalExtension());
+
+            $disainerData ['disainer_avatar']= $fileName;
+
+             // Delete old flyer
+            $disainer = LogoDisainer::find($id);
+            $disainerAvatarFileName = $disainer->disainer_avatar;
+            unlink(public_path('images/disainer_avatar/' . $disainerAvatarFileName));
+
         }
 
 
-//dd($disainerPorfolio);
-//        $file = $request->file('disainer_avatar');
-//        $path = $file->store('public/disainer');
 
 
-        $file = $request->file('disainer_avatar');
-        $path = $file->store('public/disainer');
-        $fileName = basename($path);
-        $disainerData ['disainer_avatar']= $fileName;
+
 
         //update  data
         LogoDisainer::find($id)->update($disainerData);
@@ -134,16 +149,20 @@ class LogoDisainerController extends Controller
 
 //If Admin add disainer_sort ELSE disainer_sort = 99999
         if (Auth::check() && Auth::user()->isAdmin() ) {
-            $disainerData = $request->only(['id','disainer_name', 'disainer_title', 'disainerShort_description', 'disainer_phone', 'disainer_email', 'is_active_disainer', 'disainer_sort' ]);
+            $disainerData = $request->only(['id','disainer_name', 'disainer_title', 'disainerShort_description', 'disainer_phone', 'disainer_email', 'is_active_disainer', 'disainer_sort', 'slug' ]);
         }else {
-            $disainerData = $request->only(['id','disainer_name', 'disainer_title', 'disainerShort_description', 'disainer_phone', 'disainer_email', 'is_active_disainer' ]);
+            $disainerData = $request->only(['id','disainer_name', 'disainer_title', 'disainerShort_description', 'disainer_phone', 'disainer_email', 'is_active_disainer', 'slug' ]);
         }
 
         $disainerData ['user_id'] = Auth::user()->id; //Paduodame userio id
 
-        $file = $request->file('disainer_avatar');
-        $path = $file->store('public/disainer');
-        $fileName    = basename($path);
+//        $file = $request->file('disainer_avatar');
+//        $path = $file->store('public/disainer');
+//        $fileName    = basename($path);
+        $fileName = time().'.'.$request->file('disainer_avatar')->getClientOriginalExtension();
+
+        $request->file('disainer_avatar')->move(public_path('images/disainer_avatar'),time().'.'.$request->file('disainer_avatar')->getClientOriginalExtension());
+
         $disainerData ['disainer_avatar']= $fileName;
 
         //insert data
@@ -168,7 +187,8 @@ class LogoDisainerController extends Controller
 
         LogoDisainer::find($id)->delete($id);
         // Delete a single file
-        unlink(storage_path('app/public/disainer/' . $disainerAvatarFileName));
+//        unlink(storage_path('app/public/disainer/' . $disainerAvatarFileName)); buvo veikiantis
+        unlink(public_path('images/disainer_avatar/' . $disainerAvatarFileName));
         //storage_path - sugeneruoja path iki storage dalies
 
         return redirect()->route('logotipu-kurimas.admin.disainer.view');

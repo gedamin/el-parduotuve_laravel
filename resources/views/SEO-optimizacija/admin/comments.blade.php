@@ -34,7 +34,15 @@
                             <td class="text-center">{{$comment->seopost->title}}</td>
                             <td class="text-center">{{$comment->seo_post_comment}}</td>
                             <td class="text-center">{{$comment->comment_created}}</td>
-                            <td class="text-center">{{$comment->is_active_comment}}</td>
+                            <td class="text-center">
+                                <div>
+                                    @if(($comment->is_active_comment) != 1 )
+                                        <span class="color-active">Aktyvuota</span>
+                                    @else
+                                        <span class="color-notActive">Deaktyvuota</span>
+                                    @endif
+                                </div>
+                            </td>
                             <td class="text-right">
                                 <p><a href="{{ route('SEO-optimizacija.comment.edit', $comment->id) }}"
                                       class="label label-warning">Redaguoti</a></p>

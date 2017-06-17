@@ -22,7 +22,7 @@ class MainController extends Controller
     public function seoPostView($slug)
     {
 
-//        $posts = Seopost::find($id); //vekiantis buvo
+//        $posts = Seopost::find($id); //vekiantis buvo kai vietoje slug id
         $posts = Seopost::where('slug', '=', $slug) -> first();
 //        dd($posts);
 
@@ -30,52 +30,24 @@ class MainController extends Controller
 //        return view('SEO-optimizacija.seoPostView', ['posts' => $posts]);
           return view('SEO-optimizacija.seoPostView', ['posts' => $posts]) -> withPost($posts);
     }
-
-
-
-
-//    public function getSingle($slug) {        // fech from the db based on slug
-//        $post = Post::where('slug', '=', $slug) -> first();        //return the slug and pass in the post object
-//        return view('blog.single') -> withPost($post);
-//    }
-//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    STATIC pages
-
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function AtliktiDarbai()
     {
         $images = DarbaiGallery::get();
-
         return view('atlikti-darbai.AtliktiDarbai', ['images' => $images]);
 
     }
+
+//    STATIC pages
+    public function ElektroninesParduotuvesKurimas()
+    {
+        return view('static-pages.elektronines-parduotuves-kurimas.ElektroninesParduotuvesKurimas');
+    }
+
+
+
     public function contacts()
     {
         return view('static-pages.kontaktai');

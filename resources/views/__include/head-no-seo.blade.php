@@ -13,15 +13,15 @@
 	<link rel="stylesheet" href="{{ url('assets/vendor/font-awesome/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ url('assets/vendor/animate/animate.min.css') }}">
 	<link rel="stylesheet" href="{{ url('assets/vendor/simple-line-icons/css/simple-line-icons.min.css') }}">
-	<link rel="stylesheet" href="{{ url('assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}">
-	<link rel="stylesheet" href="{{ url('assets/vendor/owl.carousel/assets/owl.theme.default.min.css') }}">
+	{{--<link rel="stylesheet" href="{{ url('assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}">--}}
+	{{--<link rel="stylesheet" href="{{ url('assets/vendor/owl.carousel/assets/owl.theme.default.min.css') }}">--}}
 	<link rel="stylesheet" href="{{ url('assets/vendor/magnific-popup/magnific-popup.min.css') }}">
 
 <!-- Theme CSS -->
 	<link rel="stylesheet" href="{{ url('assets/css/theme.css') }}">
 	<link rel="stylesheet" href="{{ url('assets/css/theme-elements.css') }}">
 	<link rel="stylesheet" href="{{ url('assets/css/theme-blog.css') }}">
-	<link rel="stylesheet" href="{{ url('assets/css/theme-shop.css') }}">
+	{{--<link rel="stylesheet" href="{{ url('assets/css/theme-shop.css') }}">--}}
 
 <!-- Current Page CSS -->
 	<link rel="stylesheet" href="{{ url('assets/vendor/rs-plugin/css/settings.css') }}">
@@ -31,9 +31,6 @@
 
 <!-- Skin CSS -->
 	<link rel="stylesheet" href="{{ url('assets/css/skins/default.css') }}">
-
-<!-- Theme Custom CSS -->
-	<link rel="stylesheet" href="{{ url('assets/css/custom.css') }}">
 
 <!-- Head Libs -->
 	<script src="{{ url('assets/vendor/modernizr/modernizr.min.js') }}"></script>

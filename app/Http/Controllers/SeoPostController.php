@@ -35,36 +35,46 @@ class SeoPostController extends Controller
 
         $this->validate($request, [
             'title' => 'required | min:3',
-//            'img' => 'required',
+            'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 //            'content' => 'required',
 //            'short_conten' => 'required',
             'author' => 'required'
         ]);
         //get post data
         $postData = $request->all();
-        $file = $request->file('img');
-        $path = $file->store('public/seo_post_img');
-        $fileName = basename($path);
-        $postData ['img']= $fileName;
-        //update post data
-        Seopost::find($id)->update($postData);
-        return redirect()->route('SEO-optimizacija.admin.index');
 
+        if ($request->hasFile('img')) {
+        $fileName = time().'.'.$request->file('img')->getClientOriginalExtension();
+        $request->file('img')->move(public_path('images/seo_post_img'),time().'.'.$request->file('img')->getClientOriginalExtension());
+
+        $postData ['img']= $fileName;
+        $deletePost = Seopost::find($id);
+        $PostFileName = $deletePost->img;
+        unlink(public_path('images/seo_post_img/' . $PostFileName));
+//update post data
+        Seopost::find($id)->update($postData);
+
+        }
+
+        return redirect()->route('SEO-optimizacija.admin.index');
     }
     public function insert(Request $request){
         //validate post data
         $this->validate($request, [
             'title' => 'required',
 //            'content' => 'required',
-            'img' => 'required'
+            'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        //https://www.youtube.com/watch?v=N_i3UFw0_84
         //get post data
         $postData = $request->all();
-        $file = $request->file('img');
-        $path = $file->store('public/seo_post_img');
-        $fileName = basename($path);
+//        $file = $request->file('img');
+//        $path = $file->store('public/seo_post_img');
+//        $fileName = basename($path);
+        $fileName = time().'.'.$request->file('img')->getClientOriginalExtension();
+        $request->file('img')->move(public_path('images/seo_post_img'),time().'.'.$request->file('img')->getClientOriginalExtension());
+
+
         $postData ['img']= $fileName;
 
         //insert post data

@@ -26,7 +26,7 @@
     <!-- END of Twiter-->
     @include('__include/head-no-seo')
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/WebPage">
 <div class="body">
     @include('__include/header')
     <div role="main" class="main">
@@ -61,10 +61,10 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="alert alert-success hidden mt-lg" id="contactSuccess">
-                        <strong>Success!</strong> Your message has been sent to us.
+                        <strong>Pavyko!</strong> Jūsų pranešimas išsiųstas..
                     </div>
                     <div class="alert alert-danger hidden mt-lg" id="contactError">
-                        <strong>Error!</strong> There was an error sending your message.
+                        <strong>Klaida!</strong> Įvyko klaida siunčiant Jūsų pranešimą.
                         <span class="font-size-xs mt-sm display-block" id="mailErrorMessage"></span>
                     </div>
                     <h2 class="mb-sm mt-sm"><strong>Klauskite</strong> ir netrukus susisieksime:</h2>

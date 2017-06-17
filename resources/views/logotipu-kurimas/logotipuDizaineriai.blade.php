@@ -29,7 +29,7 @@
 
     @include('__include/head-no-seo')
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/WebPage">
 <div class="body">
     @include('__include/header')
     <div role="main" class="main">
@@ -82,13 +82,13 @@
                                     <li class="col-md-4 col-sm-4 col-xs-4 isotope-item leadership">
 									<span class="thumb-info thumb-info-hide-wrapper-bg mb-xlg">
 										<span class="thumb-info-wrapper">
-											<a href="{{ route('logotipu-kurimas.disainer.view', $disainer->id) }}">
+											<a href="{{ route('logotipu-kurimas.disainer.view', $disainer->slug) }}">
 
 												@if( ($disainer->disainer_avatar) == '')
                                                     <img src="{{ url('assets/img/misc/team-1.jpg') }}"
                                                          class="img-responsive" alt="{{$disainer->disainer_name}}">
                                                 @else
-                                                    <img src="/storage/disainer/{{$disainer->disainer_avatar}}"
+                                                    <img src="/images/disainer_avatar/{{$disainer->disainer_avatar}}"
                                                          class="img-responsive" alt="{{$disainer->disainer_name}}">
                                                 @endif
                                                 <span class="thumb-info-title">

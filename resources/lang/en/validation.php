@@ -114,6 +114,14 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'slug' => 'URL',
+        'disainer_title' => 'Tipas',
+        'disainer_name' => 'Vardas',
+        'disainerShort_description' => 'Trumpas aprašymas',
+        'disainer_description' => 'Dizainerio aprašymas',
+        'disainer_phonne' => 'Tel. Nr.',
+        'disainer_email' => 'El. Paštas',
+    ],
 
 ];

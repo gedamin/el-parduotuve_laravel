@@ -73,7 +73,7 @@
                                 <a target="_blank" href="{{$darbai->link}}">
                                     <span class="thumb-info thumb-info-centered-info thumb-info-no-borders">
                                         <span class="thumb-info-wrapper">
-                                            <img src="/storage/images/darbai/{{ $darbai->image }}"
+                                            <img src="/images/darbai/{{ $darbai->image }}"
                                                  class="img-responsive" alt="{{$darbai->title}}">
                                             <span class="thumb-info-title">
                                                 <span class="thumb-info-inner">{{$darbai->title}}</span>

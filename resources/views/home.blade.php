@@ -10,7 +10,7 @@
     <meta content="Internetinių Elektroninių parduotuvių kūrimas prieinama kaina. Savo klientams - NEMOKAMA SEO konsultacija. Jokio avanso atsiskaitymas sukūrus tinkamą el-parduotuvę!" property="og:description"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Elektroninių parduotuvių kūrimas"/>
-    <meta content="http://www.el-parduotuve.lt/" property="og:url"/>
+    <meta content="{{route('home')}}" property="og:url"/>
     <meta content="{{ url('assets/img/misc/logo.png') }}" property="og:image"/>
     <link rel="canonical" href="{{route('home')}}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -25,7 +25,7 @@
     @include('__include/head-no-seo')
     <?php $active = 'index';?>
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/WebPage">
 <div class="body">
     @include('__include/header')
     <div role="main" class="main">
@@ -65,7 +65,7 @@
                         </strong>parduotuvių kūrimas
                     </h1>
                     <p class="lead">Išskirtinis pasiūlymas: atsiskaitykite tik tuomet, kai elektroninė parduotuvė bus
-                        tokia, kokios pageidavote. Neprašome avanso ar išankstinio mokėjimo!</p>
+                        tokia, kokios pageidavote. Neprašome avanso ar išankstinio mokėjimo!</p><a itemprop="url" href="{{route('home')}}"></a>
                 </div>
             </div>
         </div>
