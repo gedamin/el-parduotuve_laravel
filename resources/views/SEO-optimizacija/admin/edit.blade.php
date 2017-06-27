@@ -39,9 +39,21 @@
                         </div>
                     </div>
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-name">Paveiksliukas</label>
+                        <label class="col-sm-2 control-label" for="input-name">Paveiksliukas (kategorijose ir posto viršuje)</label>
                         <div class="col-sm-10">
                             <input type="file" name="img" id="img" class="form-control">
+                        </div>
+
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-10">
+                            <div class="col-sm-6">
+                            <img src="/images/seo_post_img/{{$post->img}}" width="250" height="auto">
+                            </div>
+                            <div class="col-sm-6">
+                            <p>INFORMACIJA:</p>
+                            <p>Pakeitus paveiksliuką senasis išsitrina, o naujas įsirašo. Paveiksliuko pavadinimas laiko kodas.</p>
+                            <p>Jeigu yra paveiksliukas tuomet paliekamas esamas ir neperrašomas.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group required">
@@ -57,11 +69,7 @@
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">Turinys:</label>
                         <div class="col-sm-10">
-                            <textarea name="content" id="content-edit"
-                                      class="form-control">{{ $post->content }}</textarea>
-                            <script>
-                                CKEDITOR.replace('content-edit');
-                            </script>
+                            <textarea name="content" id="content-edit" class="form-control">{{ $post->content }}</textarea>
                         </div>
                     </div>
                     <div class="form-group required">
@@ -107,4 +115,49 @@
             </div>
         </div>
     </div>
+    {{--<div class="container">--}}
+        {{--<div class="row">--}}
+            {{--<div class="col-md-6 col-md-offset-3">--}}
+                {{--<div class="input-group">--}}
+          {{--<span class="input-group-btn">--}}
+            {{--<a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">--}}
+              {{--<i class="fa fa-picture-o"></i> Choose--}}
+            {{--</a>--}}
+          {{--</span>--}}
+                    {{--<input id="thumbnail" class="form-control" type="text" name="filepath">--}}
+                {{--</div>--}}
+                {{--<img id="holder" style="margin-top:15px;max-height:100px;">--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+        var route_prefix = "{{ url(config('lfm.prefix')) }}";
+    </script>
+
+    <!-- CKEditor init -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.11/ckeditor.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.11/adapters/jquery.js"></script>
+    <script>
+        $('textarea[name=content]').ckeditor({
+            height: 100,
+            filebrowserImageBrowseUrl: route_prefix + '?type=Images',
+            filebrowserImageUploadUrl: route_prefix + '/upload?type=Images&_token={{csrf_token()}}',
+            filebrowserBrowseUrl: route_prefix + '?type=Files',
+            filebrowserUploadUrl: route_prefix + '/upload?type=Files&_token={{csrf_token()}}'
+        });
+    </script>
+
+
+
+    <script>
+        {!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/js/lfm.js')) !!}
+    </script>
+    <script>
+        $('#lfm').filemanager('image', {prefix: route_prefix});
+    </script>
+
 @endsection

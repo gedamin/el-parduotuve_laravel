@@ -52,9 +52,8 @@ class SeoPostController extends Controller
         $PostFileName = $deletePost->img;
         unlink(public_path('images/seo_post_img/' . $PostFileName));
 //update post data
-        Seopost::find($id)->update($postData);
-
         }
+        Seopost::find($id)->update($postData);
 
         return redirect()->route('SEO-optimizacija.admin.index');
     }

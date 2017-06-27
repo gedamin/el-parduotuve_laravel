@@ -38,6 +38,13 @@ Route::group(['middleware' => ['auth']], function(){
         Route::get('/admin/logotipu-dizaineriai/delete/{id}', 'LogoDisainerController@deleteDisainer')->name('logotipu-dizaineriai.admin.delete');
         //Logo portfolio CRUD CONTROLER: LogoDisainerController.php MODEL disainerslogo_img
         Route::get('/admin/logotipu-dizaineriai/logos/{id}', 'LogoDisainerController@LogoAdminListView')->name('logo.admin.list.view');
+
+
+
+//        Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
+//        Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\LfmController@upload');
+//        Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
+        // list all lfm routes here...
     });
 
     //Logo portfolio CRUD
@@ -90,6 +97,11 @@ Route::post('/kontaktai.php', 'SentMailFromContactForm@ContactFormMail');
 //Porfolio page
 Route::get('/atlikti-darbai.php', 'MainController@AtliktiDarbai')->name('atlikti-darbai');
 Route::get('/elektronines-parduotuves-kurimas.php', 'MainController@ElektroninesParduotuvesKurimas')->name('elektronines-parduotuves-kurimas');
+
+
+
+
+
 
 
 Auth::routes();
