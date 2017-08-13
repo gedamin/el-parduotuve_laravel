@@ -1,3 +1,4 @@
+<meta property="fb:app_id" content="1297575910370959" />
 <!-- Favicon -->
 	<link rel="shortcut icon" href="{{ url('assets/img/ico/favicon.ico') }}" type="image/x-icon" />
 	<link rel="apple-touch-icon" href="{{ url('assets/img/ico/favicon.png') }}">

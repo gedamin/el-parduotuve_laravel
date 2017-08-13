@@ -24,6 +24,12 @@ class MainController extends Controller
 
 //        $posts = Seopost::find($id); //vekiantis buvo kai vietoje slug id
         $posts = Seopost::where('slug', '=', $slug) -> first();
+
+    if ($posts === NULL)
+    {
+        \App::abort(404);
+    }
+
 //        dd($posts);
 
 
@@ -200,16 +206,9 @@ class MainController extends Controller
         return view('static-pages.kiti.atsiliepimai');
     }
 
-
-
-
-
-
-
-
-
     public function contacts()
     {
         return view('static-pages.kontaktai');
     }
+
 }

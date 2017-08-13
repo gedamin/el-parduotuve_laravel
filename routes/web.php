@@ -139,8 +139,8 @@ Route::get('/moduliai.php', 'MainController@Moduliai')->name('Moduliai');
 Route::get('/moduliai/pdf-saskaita.php', 'MainController@pdfModulis')->name('pdfModulis');
 Route::get('/moduliai/mokejimai.lt-paysera.php', 'MainController@payseraModulis')->name('payseraModulis');
 
+
 Auth::routes();
 //EMAIL verify before register
 Route::get('verifyEmailFirst.php', 'Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::get('verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
-

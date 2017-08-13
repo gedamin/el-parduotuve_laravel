@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="text-center"><img alt="PAGRINDINIAI PRIVALUMAI" height="220" width="auto" src="{{ url('assets/img/galimybes/elektroniniu_parduotuviu_galimybes.png') }}"/> </p>
+                                        <p class="text-center"><img class="img-responsive" alt="PAGRINDINIAI PRIVALUMAI" src="{{ url('assets/img/galimybes/elektroniniu_parduotuviu_galimybes.png') }}"/> </p>
                                         <ul>
                                             <li class="lead">Įdiegta greita prekių redagavimo funkcija</li>
                                             <li class="lead">Patogus paveiksliukų valdymas</li>
@@ -150,7 +150,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="text-center"><img alt="bankinis mokėjimai" height="290" width="auto" src="{{ url('assets/img/galimybes/kategorijos.png') }}"/> </p>
+                                        <p class="text-center"><img class="img-responsive" alt="bankinis mokėjimai" src="{{ url('assets/img/galimybes/kategorijos.png') }}"/> </p>
                                     </div>
                                 </div>
                             </div>
@@ -210,10 +210,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="text-center mt-xlg mb-xlg"><img alt="prekes" height="270" width="auto" src="{{ url('assets/img/galimybes/prekes_list.png') }}"/> </p>
-                                        <p class="text-center mt-xlg mb-xlg"><img alt="prekes" height="350" width="auto" src="{{ url('assets/img/galimybes/prekes_bendrieji.png') }}"/> </p>
-                                        <p class="text-center mt-xlg mb-xlg"><img alt="prekes" height="530" width="auto" src="{{ url('assets/img/galimybes/prekes-duomenys.png') }}"/> </p>
-                                        <p class="text-center mt-xlg mb-xlg"><img alt="prekes" height="205" width="auto" src="{{ url('assets/img/galimybes/akcijos.png') }}"/> </p>
+                                        <p class="text-center mt-xlg mb-xlg"><img class="img-responsive" alt="prekes" src="{{ url('assets/img/galimybes/prekes_list.png') }}"/> </p>
+                                        <p class="text-center mt-xlg mb-xlg"><img class="img-responsive" alt="prekes" src="{{ url('assets/img/galimybes/prekes_bendrieji.png') }}"/> </p>
+                                        <p class="text-center mt-xlg mb-xlg"><img class="img-responsive" alt="prekes" src="{{ url('assets/img/galimybes/prekes-duomenys.png') }}"/> </p>
+                                        <p class="text-center mt-xlg mb-xlg"><img class="img-responsive" alt="prekes" src="{{ url('assets/img/galimybes/akcijos.png') }}"/> </p>
                                     </div>
                                 </div>
                             </div>
@@ -254,7 +254,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="text-center"><img alt="pristatymo būdai" height="320" width="auto" src="{{ url('assets/img/galimybes/pristatymas.png') }}"/> </p>
+                                        <p class="text-center"><img class="img-responsive" alt="pristatymo būdai" src="{{ url('assets/img/galimybes/pristatymas.png') }}"/> </p>
                                     </div>
                                 </div>
                             </div>
@@ -288,7 +288,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="text-center"><img alt="Paysera mokėjimai" height="220" width="auto" src="{{ url('assets/img/galimybes/Paysera.png') }}"/> </p>
+                                        <p class="text-center"><img class="img-responsive" alt="Paysera mokėjimai" src="{{ url('assets/img/galimybes/Paysera.png') }}"/> </p>
                                     </div>
                                 </div>
                             </div>
@@ -322,7 +322,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="text-center"><img alt="PayPal mokėjimai" height="220" width="auto" src="{{ url('assets/img/galimybes/paypal.png') }}"/> </p>
+                                        <p class="text-center"><img class="img-responsive" alt="PayPal mokėjimai" src="{{ url('assets/img/galimybes/paypal.png') }}"/> </p>
                                     </div>
                                 </div>
                             </div>
@@ -356,7 +356,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="text-center"><img alt="Opay mokėjimai" height="220" width="auto" src="{{ url('assets/img/galimybes/opay.png') }}"/> </p>
+                                        <p class="text-center"><img class="img-responsive" alt="Opay mokėjimai" src="{{ url('assets/img/galimybes/opay.png') }}"/> </p>
                                     </div>
                                 </div>
                             </div>
@@ -390,7 +390,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="text-center"><img alt="PayPal mokėjimai" height="220" width="auto" src="{{ url('assets/img/galimybes/cardinity.png') }}"/> </p>
+                                        <p class="text-center"><img class="img-responsive" alt="PayPal mokėjimai" src="{{ url('assets/img/galimybes/cardinity.png') }}"/> </p>
                                     </div>
                                 </div>
                             </div>
@@ -424,7 +424,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="text-center"><img alt="bankinis mokėjimai" height="220" width="auto" src="{{ url('assets/img/galimybes/bankinis.png') }}"/> </p>
+                                        <p class="text-center"><img class="img-responsive" alt="bankinis mokėjimai" src="{{ url('assets/img/galimybes/bankinis.png') }}"/> </p>
                                     </div>
                                 </div>
                             </div>

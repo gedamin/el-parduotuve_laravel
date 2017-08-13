@@ -80,7 +80,7 @@
                                 <a class="dropdown-toggle" href="{{ url('dokumentacija.php') }}">Dokumentacija</a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ url('opencart-valdymas/video-dokumentacija.php') }}">Video dokumentacija</a>
+                                        <a href="{{ url('dokumentacija/video-dokumentacija.php') }}">Video dokumentacija</a>
                                     </li>
                                     <li>
                                         <a href="{{ url('dokumentacija/aprasymai.php') }}">Aprašymai</a>
