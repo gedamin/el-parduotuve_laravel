@@ -1,3 +1,112 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^el-parduotuve\.lt$ [NC]
+RewriteRule ^(.*)$ http://www.el-parduotuve.lt/$1 [R=301,L]
+
+#RewriteCond %{THE_REQUEST} /index\.php? [NC]
+#RewriteRule ^(.*)index.html$ http://www.el-parduotuve.lt/$1 [R=301,L]
+
+#RewriteCond %{THE_REQUEST} /index\.php? [NC]
+#RewriteRule ^(.*/)?index\.php?$ /$1 [R=301,L]
+
+#redirectas po perkelimo į php === bet negerai nes subdomain redirectinasi
+#RedirectMatch 301 (.*)\.html$ http://www.el-parduotuve.lt$1.php
+
+#404 error page
+ErrorDocument 404 /puslapis-nerastas-404.php
+
+SetEnvIfNoCase Referer darodar.com spambot=yes
+Order allow,deny
+Allow from all
+Deny from env=spambot
+
+
 #rankiniu būdu redirect
 #Redirect 301 /index.html http://www.el-parduotuve.lt/index.php
-#Redirect 301 / http://www.el-parduotuve.lt/index.php
+
+Redirect 301 /SEO-optimizacija/draugiskas-url-seo.htm http://www.el-parduotuve.lt/SEO-optimizacija/draugiskas-url-seo.php
+
+
+Redirect 301 /elektronines-parduotuves-kurimas/elektronines-parduotuves-kaina.html http://www.el-parduotuve.lt/elektronines-parduotuves-kurimas/elektronines-parduotuves-kaina.php
+Redirect 301 /elektronines-parduotuves-kurimas/elektronines-parduotuves-dizainas.html http://www.el-parduotuve.lt/elektronines-parduotuves-kurimas/elektronines-parduotuves-dizainas.php
+Redirect 301 /opencart-valdymas/opencart-aprasymai.html http://www.el-parduotuve.lt/opencart-valdymas/opencart-aprasymai.php
+Redirect 301 /elektronines-parduotuves-kurimas.html http://www.el-parduotuve.lt/elektronines-parduotuves-kurimas.php
+Redirect 301 /elektronines-parduotuves-kurimas/elektronines-parduotuves-galimybes.html http://www.el-parduotuve.lt/elektronines-parduotuves-kurimas/elektronines-parduotuves-galimybes.php
+Redirect 301 /elektronines-parduotuves-kurimas/el-parduotuves-kurimo-etapai.html http://www.el-parduotuve.lt/elektronines-parduotuves-kurimas/el-parduotuves-kurimo-etapai.php
+Redirect 301 /elektronines-parduotuves-kurimas/demonstracija.html http://www.el-parduotuve.lt/elektronines-parduotuves-kurimas/demonstracija.php
+Redirect 301 /elektronines-parduotuves-kurimas/paruosta-internetine-parduotuve.html http://www.el-parduotuve.lt/elektronines-parduotuves-kurimas/paruosta-internetine-parduotuve.php
+Redirect 301 /opencart-valdymas.html http://www.el-parduotuve.lt/opencart-valdymas.php
+Redirect 301 /opencart-valdymas/opencart-video-tvs.html http://www.el-parduotuve.lt/opencart-valdymas/opencart-video-tvs.php
+Redirect 301 /opencart-valdymas/opencart-aprasymai.html http://www.el-parduotuve.lt/opencart-valdymas/opencart-aprasymai.php
+Redirect 301 /SEO-optimizacija.html http://www.el-parduotuve.lt/SEO-optimizacija.php
+Redirect 301 /atlikti-darbai.html http://www.el-parduotuve.lt/atlikti-darbai.php
+Redirect 301 /kontaktai.html http://www.el-parduotuve.lt/kontaktai.php
+Redirect 301 /atsiliepimai-apie-el-parduotuve.lt.html http://www.el-parduotuve.lt/atsiliepimai-apie-el-parduotuve.lt.php
+Redirect 301 /opencart-valdymas/opencart-el-parduotuve-nuo-ko-pradeti.html http://www.el-parduotuve.lt/opencart-valdymas/opencart-el-parduotuve-nuo-ko-pradeti.php
+Redirect 301 /opencart-valdymas/kaip-prideti-kategorija.html http://www.el-parduotuve.lt/opencart-valdymas/kaip-prideti-kategorija.php
+Redirect 301 /opencart-valdymas/kaip-prideti-preke.html http://www.el-parduotuve.lt/opencart-valdymas/kaip-prideti-preke.php
+Redirect 301 /opencart-valdymas/pakeisti-logo.html http://www.el-parduotuve.lt/opencart-valdymas/pakeisti-logo.php
+Redirect 301 /opencart-valdymas/nemokamas-pristatymas.html http://www.el-parduotuve.lt/opencart-valdymas/nemokamas-pristatymas.php
+Redirect 301 /opencart-valdymas/pervedimas-per-banka.html http://www.el-parduotuve.lt/opencart-valdymas/pervedimas-per-banka.php
+Redirect 301 /opencart-valdymas/skaidrine-reklama.html http://www.el-parduotuve.lt/opencart-valdymas/skaidrine-reklama.php
+Redirect 301 /opencart-valdymas/akcija.html http://www.el-parduotuve.lt/opencart-valdymas/akcija.php
+Redirect 301 /opencart-valdymas/filtras.html http://www.el-parduotuve.lt/opencart-valdymas/filtras.php
+Redirect 301 /opencart-valdymas/kaip-prideti-gamintoja.html http://www.el-parduotuve.lt/opencart-valdymas/kaip-prideti-gamintoja.php
+Redirect 301 /SEO-optimizacija/seo-efektyviausia-reklama-internete.html http://www.el-parduotuve.lt/SEO-optimizacija/seo-efektyviausia-reklama-internete.php
+Redirect 301 /SEO-optimizacija/seo-optimizacija-prekems.html http://www.el-parduotuve.lt/SEO-optimizacija/seo-optimizacija-prekems.php
+Redirect 301 /SEO-optimizacija/elektronines-parduotuves-seo-tekstas.html http://www.el-parduotuve.lt/SEO-optimizacija/elektronines-parduotuves-seo-tekstas.php
+Redirect 301 /SEO-optimizacija/elektronines-parduotuve-seo-nuo-ko-pradeti.html http://www.el-parduotuve.lt/SEO-optimizacija/elektronines-parduotuve-seo-nuo-ko-pradeti.php
+Redirect 301 /SEO-optimizacija/elektronines-parduotuves-raktazodziai.html http://www.el-parduotuve.lt/SEO-optimizacija/elektronines-parduotuves-raktazodziai.php
+Redirect 301 t/SEO-optimizacija/elektronines-parduotuves-ivertinimas.html http://www.el-parduotuve.lt/SEO-optimizacija/elektronines-parduotuves-ivertinimas.php
+Redirect 301 /SEO-optimizacija/internetines-parduotuves-indeksacija.html http://www.el-parduotuve.lt/SEO-optimizacija/internetines-parduotuves-indeksacija.php
+Redirect 301 /SEO-optimizacija/iskviesti-paiesku-sistemu-robotus-elektronine-parduotuve.html http://www.el-parduotuve.lt/SEO-optimizacija/iskviesti-paiesku-sistemu-robotus-elektronine-parduotuve.php
+Redirect 301 /SEO-optimizacija/suraskite-greita-hostingo-tiekeja.html http://www.el-parduotuve.lt/SEO-optimizacija/suraskite-greita-hostingo-tiekeja.php
+Redirect 301 /SEO-optimizacija/elektronines-parduotuves-zemelapis.html http://www.el-parduotuve.lt/SEO-optimizacija/elektronines-parduotuves-zemelapis.php
+Redirect 301 /SEO-optimizacija/draugiskas-url-seo.html http://www.el-parduotuve.lt/SEO-optimizacija/draugiskas-url-seo.php
+Redirect 301 /SEO-optimizacija/elektronines-parduotuves-indeksacija.html http://www.el-parduotuve.lt/SEO-optimizacija/elektronines-parduotuves-indeksacija.php
+Redirect 301 /SEO-optimizacija/elektronines-parduotuves-nuorodos.html http://www.el-parduotuve.lt/SEO-optimizacija/elektronines-parduotuves-nuorodos.php
+Redirect 301 /SEO-optimizacija/dar-keletas-seo-optimizacijos-patarimu.html http://www.el-parduotuve.lt/SEO-optimizacija/dar-keletas-seo-optimizacijos-patarimu.php
+Redirect 301 /SEO-optimizacija/pagrindinio-elektronines-parduotuves-puslapio-seo.html http://www.el-parduotuve.lt/SEO-optimizacija/pagrindinio-elektronines-parduotuves-puslapio-seo.php
+Redirect 301 /SEO-optimizacija/raktazodziu-parinkimas-svetainei.html http://www.el-parduotuve.lt/SEO-optimizacija/raktazodziu-parinkimas-svetainei.php
+Redirect 301 /SEO-optimizacija/raktazodziu-atranka.html http://www.el-parduotuve.lt/SEO-optimizacija/raktazodziu-atranka.php
+Redirect 301 /SEO-optimizacija/konkurento-analize.html http://www.el-parduotuve.lt/SEO-optimizacija/konkurento-analize.php
+Redirect 301 /hostingas-svetaines-talpinimas.html http://www.el-parduotuve.lt/hostingas-svetaines-talpinimas.php
+Redirect 301 /opencart-valdymas/video-dokumetacija.php http://www.el-parduotuve.lt/opencart-valdymas/video-dokumentacija.php
+
+
+
+# IJUNGIAM BROWSER LAVERAGE CACHING
+# Turn on Expires and set default to 0
+ExpiresActive On
+ExpiresDefault A0
+
+# Set up caching on media files for 5 weeks
+<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav)$">
+ExpiresDefault A3024000
+Header append Cache-Control "public"
+</FilesMatch>
+
+# Set up caching on media files for 5 weeks
+<FilesMatch "\.(gif|jpg|jpeg|png|swf)$">
+ExpiresDefault A3024000
+Header append Cache-Control "public"
+</FilesMatch>
+
+# Set up 5 week caching on commonly updated files
+<FilesMatch "\.(xml|txt|html|js|css)$">
+ExpiresDefault A3024000
+Header append Cache-Control "proxy-revalidate"
+</FilesMatch>
+
+# Force no caching for dynamic files
+<FilesMatch "\.(php|cgi|pl|htm)$">
+ExpiresActive Off
+Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
+Header set Pragma "no-cache"
+</FilesMatch>
+
+# IJUNGIAM KOMPRESIJA
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript image/x-icon
+<filesMatch ".(css|js|x?html?|php|ico)$">
+SetOutputFilter DEFLATE
+</filesMatch>

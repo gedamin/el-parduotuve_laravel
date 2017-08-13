@@ -7,6 +7,7 @@ use App\LogoDisainer;
 use App\LogoDisainerProfile;
 use Illuminate\Support\Facades\Auth;
 use  App\disainerslogo_image;
+use  App\ImageGallery;
 use File;
 
 class LogoDisainerController extends Controller
@@ -14,10 +15,13 @@ class LogoDisainerController extends Controller
     public function LogoDisainersView()
     {
         $disainerList = LogoDisainer::orderBy('disainer_sort','asc')->paginate(9);
+       // $comments = SeoPostComment::all();
+        $disainerPorfolio =LogoDisainer::all(); //nereikai
+       // $images = ImageGallery::where('profile_id', $profile_id)->get();
+        //$images = ImageGallery::all();
 //        dd($disainerList);
 
-
-        return view('logotipu-kurimas.logotipuDizaineriai', ['disainers_lists' => $disainerList ]);
+        return view('logotipu-kurimas.logotipuDizaineriai', ['disainerPorfolio' => $disainerPorfolio, 'disainers_lists' => $disainerList ]);
 //        disainers_lists - nurodau blade koks bus kintamasisi
     }
 
@@ -211,5 +215,7 @@ class LogoDisainerController extends Controller
 
 
     }
+
+
 
 }

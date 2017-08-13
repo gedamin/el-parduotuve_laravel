@@ -10,10 +10,9 @@
     <meta name="description" content="{{$posts->meta_description}}">
     <meta content="{{$posts->meta_description}}" property="og:description"/>
     <meta property="og:type" content="website"/>
-
-    <meta content="{{ url('SEO-optimizacija',$posts->slug) }}" property="og:url"/>
+    <meta content="{{ route('blog.single',$posts->slug) }}" property="og:url"/>
     <meta content="{{ url('assets/img/misc/logo.png') }}" property="og:image"/>
-    <link rel="canonical" href="{{ url('SEO-optimizacija',$posts->slug) }}"/>
+    <link rel="canonical" href="{{ route('blog.single',$posts->slug) }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="author" content="{{ $posts->author }}">
     <!-- Twiter-->
@@ -38,16 +37,16 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb" itemtype="http://schema.org/BreadcrumbList">
                         <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a
-                                    itemprop="item" href="{{ url('/') }}"><span itemprop="name">Pradžia</span></a>
+                                    itemprop="item" href="{{ route('home') }}"><span itemprop="name">Pradžia</span></a>
                             <meta itemprop="position" content="1"/>
                         </li>
                         <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
-                            class="active"><a itemprop="item" href="{{ url('SEO-optimizacija.php') }}"><span
+                            class="active"><a itemprop="item" href="{{ route('SEO-optimizacija') }}"><span
                                         itemprop="name">SEO optimizacija</span></a>
                             <meta itemprop="position" content="2"/>
                         </li>
                         <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
-                            class="active"><a itemprop="item" href="{{ url('SEO-optimizacija',$posts->id) }}"><span
+                            class="active"><a itemprop="item" href="{{ route('blog.single',$posts->slug) }}"><span
                                         itemprop="name">{{$posts->title}}</span></a>
                             <meta itemprop="position" content="2"/>
                         </li>
@@ -71,7 +70,7 @@
             <div class="col-md-9">
                 <div class="blog-posts single-post">
                     <article class="post post-large blog-single-post" itemscope itemtype="http://schema.org/Article">
-                        <meta itemprop="discussionUrl" content="{{ url('SEO-optimizacija',$posts->slug) }}" />
+                        <meta itemprop="discussionUrl" content="{{ route('blog.single',$posts->slug) }}" />
                         <meta itemprop="interactionCount" content="UserComments:{{count($posts->comments)}}" />
                         <meta itemprop="datePublished" content="{{$posts->created}}" />
                         <meta itemprop="dateModified" content="{{$posts->modified}}" />
@@ -83,65 +82,60 @@
                             </div>
                         </div>
                         <div class="post-date">
-                            <span class="day">{{$posts->created->format('m')}}</span>
+                            <span class="day">{{$posts->created->format('d')}}</span>
                             <?php
-                            $menuo = $posts->created->format('M');
+                            $menuo = $posts->created->format('m');
                             switch ($menuo) {
-                                case "January":
-                                    $sis_menuo = "Sausis";
+                                case "01":
+                                    $sis_menuo = "Sau";
                                     break;
-                                case "February":
-                                    $sis_menuo = "Vasaris";
+                                case "02":
+                                    $sis_menuo = "Vas";
                                     break;
-                                case "March":
-                                    $sis_menuo = "Kovas";
+                                case "03":
+                                    $sis_menuo = "Kov";
                                     break;
-                                case "April":
-                                    $sis_menuo = "Balandis";
+                                case "04":
+                                    $sis_menuo = "Bal";
                                     break;
-                                case "May":
-                                    $sis_menuo = "Gegužė";
+                                case "05":
+                                    $sis_menuo = "Geg";
                                     break;
-                                case "June":
-                                    $sis_menuo = "Birželis";
+                                case "06":
+                                    $sis_menuo = "Bir";
                                     break;
-                                case "July":
-                                    $sis_menuo = "Liepa";
+                                case "07":
+                                    $sis_menuo = "Lie";
                                     break;
-                                case "August":
-                                    $sis_menuo = "Rugpjūtis";
+                                case "08":
+                                    $sis_menuo = "Rgp";
                                     break;
-                                case "September":
-                                    $sis_menuo = "Rugsėjis";
+                                case "09":
+                                    $sis_menuo = "Rgs";
                                     break;
-                                case "October":
-                                    $sis_menuo = "Spalis";
+                                case "10":
+                                    $sis_menuo = "Spl";
                                     break;
-                                case "November":
-                                    $sis_menuo = "Lapkritis";
+                                case "11":
+                                    $sis_menuo = "Lap";
                                     break;
-                                case "December":
-                                    $sis_menuo = "Gruodis";
+                                case "12":
+                                    $sis_menuo = "Grd";
                                     break;
                                 default:
-                                    $sis_menuo = "Sausis";
+                                    $sis_menuo = "Mėn";
                             }
                             ?>
                             <span class="month"><?php echo $sis_menuo; ?></span>
                         </div>
                         <div class="post-content">
-
-                            <h2 itemprop="name">{{$posts->title}}</h2>
-
+                            <h2 class="heading-primary" itemprop="name"><strong>{{$posts->title}}</strong></h2>
                             <div class="post-meta">
                                 <span><i class="fa fa-calendar"></i> {{$posts->created->format('Y-m-d')}}</span>
                                 <span><i class="fa fa-user"></i> Parengė <a
                                             href="https://plus.google.com/u/0/117284839973334834336?rel=author"><span itemprop="author">{{$posts->author}}</span></a> </span>
-                                <span><i class="fa fa-comments"></i> <a
-                                            href="{{ url('SEO-optimizacija',$posts->id) }}#cmt">{{ $posts->comments->where("is_active_comment", 0)->count() }}
+                                <span><i class="fa fa-comments"></i> <a href="{{ route('blog.single',$post->slug) }}#cmt">{{ $posts->comments->where("is_active_comment", 0)->count() }}
                                         Komentarai</a></span>
-
-
 
                             </div>
                             @yield('content')
@@ -159,7 +153,7 @@
                             </div>
                             {{--Comment begin--}}
                             <div class="post-block post-comments clearfix">
-                                <h3 class="heading-primary"><i class="fa fa-comments"></i>Komentarai
+                                <h3 class="heading-primary"><i class="fa fa-comments"></i>Komentarai (-ų)
                                     ({{ $posts->comments->where("is_active_comment", 0)->count() }})</h3>
 
                                 @foreach($posts->comments as $comment)

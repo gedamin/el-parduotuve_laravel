@@ -38,7 +38,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}" target="_blank">Pradžia</a>
+                    <a class="navbar-brand" href="{{ route('home') }}" target="_blank">Pradžia</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -80,9 +80,19 @@
         </nav>
 
         @yield('content')
-    </div>
+    {{--</div>--}}
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    {{--<!-- Scripts -->--}}
+    {{--<script src="{{ asset('js/app.js') }}"></script>--}}
+{{--</body>--}}
+{{--</html>--}}
+
+
+
+@include('__include/footer')
+</div>
+@include('__include/scriptsFooter')
+<script src="{{ url('assets/vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js') }}"></script>
+
 </body>
 </html>

@@ -3,23 +3,23 @@
 <head>
     <?php $active = 'meniu_kontaktai';?>
     <meta charset="UTF-8">
-    <title>Kontaktai | www.el-parduotuve.lt | el.parduotuve.lt@gmail.com</title>
-    <meta content="Kontaktai | www.el-parduotuve.lt | el.parduotuve.lt@gmail.com" property="og:title"/>
+    <title>Kontaktai | www.el-parduotuve.lt | info@el-parduotuve.lt</title>
+    <meta content="Kontaktai | www.el-parduotuve.lt | info@el-parduotuve.lt" property="og:title"/>
     <meta name="robots" content="INDEX,FOLLOW"/>
     <meta name="description"
-          content="Kontaktai: www.el-parduotuve.lt el.paštas - el.parduotuve.lt@gmail.com< - Elektroninės parduotuvės kūrimas."
+          content="Kontaktai: www.el-parduotuve.lt el.paštas - info@el-parduotuve.lt< - Elektroninės parduotuvės kūrimas."
           property="og:description"/>
     <meta property="og:type" content="website"/>
-    <meta content="{{ url('kontaktai.php') }}" property="og:url"/>
+    <meta content="{{ route('kontaktai') }}" property="og:url"/>
     <meta content="{{ url('assets/img/misc/logo.png') }}" property="og:image"/>
-    <link rel="canonical" href="{{ url('kontaktai.php') }}"/>
+    <link rel="canonical" href="{{ route('kontaktai') }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="author" content="Gediminas">
     <!-- Twiter-->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@elparduotuve">
     <meta name="twitter:creator" content="@elparduotuve">
-    <meta name="twitter:title" content="Kontaktai | www.el-parduotuve.lt | el.parduotuve.lt@gmail.com<">
+    <meta name="twitter:title" content="Kontaktai | www.el-parduotuve.lt | info@el-parduotuve.lt<">
     <meta name="twitter:description"
           content="Kontaktai: www.el-parduotuve.lt el.paštas - info@el-parduotuve.lt - Elektroninės parduotuvės kūrimas">
     <meta name="twitter:image" content="{{ url('assets/img/misc/logo.png') }}" title="www.el-parduotuve.lt">
@@ -35,13 +35,10 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="breadcrumb" itemtype="http://schema.org/BreadcrumbList">
-                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a
-                                        itemprop="item" href="{{ url('/') }}"><span itemprop="name">Pradžia</span></a>
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="item" href="{{ url('/') }}"><span itemprop="name">Pradžia</span></a>
                                 <meta itemprop="position" content="1"/>
                             </li>
-                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
-                                class="active"><a itemprop="item" href="{{ url('kontaktai.php') }}"><span
-                                            itemprop="name">Kontaktai</span></a>
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active"><a itemprop="item" href="{{ route('kontaktai') }}"><span itemprop="name">Kontaktai</span></a>
                                 <meta itemprop="position" content="2"/>
                             </li>
                         </ul>
@@ -74,14 +71,11 @@
                             <div class="form-group">
                                 <div class="col-md-6">
                                     <label>Jūsų vardas *</label>
-                                    <input type="text" value="" data-msg-required="Įveskite vardą." maxlength="100"
-                                           class="form-control" name="ContactFormName" id="ContactFormName" required>
+                                    <input type="text" value="" data-msg-required="Įveskite vardą." maxlength="100" class="form-control" name="ContactFormName" id="ContactFormName" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label>Jūsų elektroninio pašto adresas *</label>
-                                    <input type="email" value="" data-msg-required="Please enter your email address."
-                                           data-msg-email="prašome įveskite tinkamą adresą." maxlength="100"
-                                           class="form-control" name="ContactFormEmail" id="email" required>
+                                    <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="prašome įveskite tinkamą adresą." maxlength="100" class="form-control" name="ContactFormEmail" id="email" required>
                                 </div>
                             </div>
                         </div>
@@ -89,9 +83,7 @@
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <label>Klausimas</label>
-                                    <input type="text" value="" data-msg-required="Įveskite klausimą." maxlength="100"
-                                           class="form-control" name="ContacFormSubject" id="ContacFormSubject"
-                                           required>
+                                    <input type="text" value="" data-msg-required="Įveskite klausimą." maxlength="100" class="form-control" name="ContacFormSubject" id="ContacFormSubject" required>
                                 </div>
                             </div>
                         </div>
@@ -99,9 +91,7 @@
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <label>Žinutė *</label>
-                                    <textarea maxlength="5000" data-msg-required="Įveskite žinutę mums." rows="10"
-                                              class="form-control" name="ContactFormMessage" id="ContactFormMessage"
-                                              required></textarea>
+                                    <textarea maxlength="5000" data-msg-required="Įveskite žinutę mums." rows="10" class="form-control" name="ContactFormMessage" id="ContactFormMessage" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +115,7 @@
                         <li><i class="fa fa-map-marker"></i> <strong>Adresas:</strong> Kovo 11-osios g. Vilnius</li>
                         <li><i class="fa fa-phone"></i> <strong>Tel:</strong> +37064687522</li>
                         <li><i class="fa fa-envelope"></i> <strong>Email:</strong> <a
-                                    href="mailto:el.parduotuve.lt@gmail.com">el.parduotuve.lt@gmail.com</a></li>
+                                    href="mailto:info@el-parduotuve.lt">info@el-parduotuve.lt</a></li>
                     </ul>
                     <hr>
                     <h4 class="heading-primary">Darbo <strong>Valandos</strong></h4>
@@ -141,16 +131,17 @@
 </div>
 @include('__include/scriptsFooter')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjfhEdx6rNcFV0gofX8ETdTWv707OwKkQ"></script>
+<script src="{{ url('assets/vendor/jquery.gmap/jquery.gmap.min.js') }}"></script>
 <script>
     // Map Markers
     var mapMarkers = [{
-        address: "Vilnius, LT-27125",
-        html: "<strong>Kovo 11-osios g.</strong><br>Vilnius, LT-27125<br><br><a href='#' onclick='mapCenterAt({latitude: 54.668608, longitude: 25.099480, zoom: 12}, event)'>[+] padidinti</a>",
-        icon: {
-            image: "assets/img/misc/pin.png",
-            iconsize: [26, 46],
-            iconanchor: [12, 46]
-        }
+//        address: "Vilnius, LT-27125",
+//        html: "<strong>Kovo 11-osios g.</strong><br>Vilnius, LT-27125<br><br><a href='#' onclick='mapCenterAt({latitude: 54.668608, longitude: 25.099480, zoom: 12}, event)'>[+] padidinti</a>",
+//        icon: {
+//            image: "assets/img/misc/pin.png",
+//            iconsize: [26, 46],
+//            iconanchor: [12, 46]
+//        }
     }];
     // Map Initial Location
     var initLatitude = 54.668608;

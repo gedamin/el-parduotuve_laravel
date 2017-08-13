@@ -12,4 +12,11 @@ class ImageGallery extends Model
     public function LogoGalleryLogo() {
         return $this->hasMany('App\LogoDisainer',  'profile_id');
     }
+
+//    public function testas() {
+//        return $this->belongsTo('App\LogoDisainerProfile',  'profile_id');
+//    }
+
+
+
 }

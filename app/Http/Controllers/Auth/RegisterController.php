@@ -6,9 +6,15 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Str;
+use Mail;
+use App\Mail\verifyEmail;
+
 
 class RegisterController extends Controller
 {
+
+
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -59,11 +65,45 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create(array(
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'isAdmin' => 0
-        ]);
+            'isAdmin' => 0,
+            'verifyToken' => Str::random(40),
+        ));
+
+        $thisUser = User::findOrFail($user->id);
+        $this->sendEmail($thisUser);
+
+        Mail::to('el.parduotuve.lt@gmail.com')->send(new verifyEmail($thisUser));
+
+        return $user;
     }
+    public function sendEmail($thisUser) {
+        Mail::to($thisUser['email'])->send(new verifyEmail($thisUser));
+
+    }
+
+    public function verifyEmailFirst() {
+        return view('Emails.verifyEmailFirst');
+    }
+
+
+    public function sendEmailDone($email, $verifyToken) {
+        $user = User::where(['email'=> $email,'verifyToken'=> $verifyToken])->first();
+        if ($user){
+             User::where(['email'=> $email,'verifyToken'=> $verifyToken])->update(['status' => '1','verifyToken'=> NULL]);
+//            return'done'; //nukreipti i norima view faila
+            session()->flash('mesage', 'Jūsų registracija patvirtinta, galite prisijungti.');
+            return view('auth.login');
+
+        } else {
+            //could be created a page for return
+//            return 'User not found';
+            session()->flash('mesageNil', 'Jeigu patvirtinote registraciją galite prisijungti.');
+            return view('auth.login');
+        }
+    }
+
 }

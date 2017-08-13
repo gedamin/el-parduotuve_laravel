@@ -15,10 +15,11 @@ class LogoDisainerProfile extends Model
         return $this->belongsTo('App\LogoDisainer',  'disainer_id');
     }
 
-    public function LogoDisainerImg() {
-        return $this->hasMany('App\disainerslogo_image',  'profile_id');
-    }
 
+    //NOT USED ANYMORE
+//    public function LogoDisainerImg() {
+//        return $this->hasMany('App\disainerslogo_image',  'profile_id');
+//    }
 
 
 

@@ -1,6 +1,25 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+
+    @if (session()->has('mesage'))
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="alert alert-success">
+                    <strong>{{session()->get('mesage')}}</strong>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if (session()->has('mesageNil'))
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="alert alert-warning">
+                    <strong>{{session()->get('mesageNil')}}</strong>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">

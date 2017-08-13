@@ -61,7 +61,7 @@
                                         <ul class="dropdown-menu">
                                             <li><a href="{{ url('elektronines-parduotuves-kurimas/elektronines-parduotuves-kaina.php') }}">Kaina<span class="tip tip-dark">hot</span></a></li>
                                             <li><a href="{{ url('elektronines-parduotuves-kurimas/elektronines-parduotuves-galimybes.php') }}">Galimybės</a></li>
-                                            <li><a href="{{ url('elektronines-parduotuves-kurimas/elektronines-parduotuves-dizainas.php') }}">Dizainai</a></li>
+                                            <li><a href="{{ url('elektronines-parduotuves-kurimas/elektronines-parduotuves-dizainas.php') }}">Rekomenduojami Dizainai</a></li>
                                             <li><a href="{{ url('elektronines-parduotuves-kurimas/el-parduotuves-kurimo-etapai.php') }}">Kūrimo etapai</a></li>
                                             <li><a href="{{ url('elektronines-parduotuves-kurimas/demonstracija.php') }}">DEMO el-parduotuvė</a></li>
                                             <li><a href="{{ url('elektronines-parduotuves-kurimas/paruosta-internetine-parduotuve.php') }}">Įsigyk paruoštą el-parduotuvę!</a></li>
@@ -72,7 +72,7 @@
                                         <a href="{{ url('logotipu-kurimas.php') }}">Logotipų kūrimas</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url('hostingas-svetaines-talpinimas.php') }}">Hostingas (su nuolaida)<span class="tip tip-dark">hot</span></a>
+                                        <a href="{{ url('hostingas-svetaines-talpinimas.php') }}">Hostingas (su nuolaida)</a>
                                     </li>
                                 </ul>
                             </li>

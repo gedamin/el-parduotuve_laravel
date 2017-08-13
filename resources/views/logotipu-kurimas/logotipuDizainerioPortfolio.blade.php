@@ -60,28 +60,40 @@
                 </div>
             </div>
         </section>
+        {{--dd{{($disainerPorfolio)}};--}}
         <div class="container">
             <h2>{{ $disainerPorfolio->disainer_title }}</h2>
-            <div class="row">
+            <div class="row mt-xlg">
                 <div class="col-md-12">
-                    <div class="post-block post-author clearfix">
-                        <div class="img-thumbnail">
-                            <img src="/images/disainer_avatar/{{ $disainerPorfolio->disainer_avatar }}"
-                                 alt="{{ $disainerPorfolio->disainer_name }}">
+                    <div class="LogoDisainerList">
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            <div class="">
+                                @if( ($disainerPorfolio->disainer_avatar) == '')
+                                    <img src="{{ url('assets/img/misc/team-1.jpg') }}" class="img-responsive img-circle"  alt="{{ $disainerPorfolio->disainer_name }}">
+                                @else
+                                    <img src="/images/disainer_avatar/{{ $disainerPorfolio->disainer_avatar }}" class="img-responsive img-circle"  alt="{{ $disainerPorfolio->disainer_name }}">
+                                @endif
+                            </div>
                         </div>
-                        <p><i class="fa fa-user"></i> <strong class="name">{{ $disainerPorfolio->disainer_name }}</strong></p>
-                        <p>{{$disainerPorfolio->LogoDisainerList->disainer_description}} </p>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                            <p class="porfolioName"><strong><i class="fa fa-user"></i> {{ $disainerPorfolio->disainer_name }}</strong></p>
+                            <h3 class="porfolioTitle"><strong>{{$disainerPorfolio->disainer_title}}</strong></h3>
+                            <p class="desc porfolioDesc">{{$disainerPorfolio->LogoDisainerList->disainer_description}}</p>
+                            <hr class="">
+                            <ul class="list list-icons list-icons-style-3 mt-xs pl-md pr-md">
+                                <li class="ib"><i class="fa fa-phone"></i> {{$disainerPorfolio->disainer_phone}}</li>
+                                <li class="ib"><i class="fa fa-envelope"></i> <a
+                                            href="mailto:{{$disainerPorfolio->disainer_email}}"> {{$disainerPorfolio->disainer_email}}</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <ul class="list list-icons list-icons-style-3 mt-xs pl-md pr-md">
-                        <li class="ib"><i class="fa fa-phone"></i> {{$disainerPorfolio->disainer_phone}}</li>
-                        <li class="ib"><i class="fa fa-envelope"></i> <a
-                                    href="mailto:{{$disainerPorfolio->disainer_email}}"> {{$disainerPorfolio->disainer_email}}</a>
-                        </li>
-                    </ul>
+            </div>
+            <div class="row">
+
                     <hr class="tall">
-                </div>
+
                 <div class="col-md-12">
                     <div class="sort-destination-loader-showing">
                         <ul class="image-gallery sort-destination lightbox" data-sort-id="portfolio"
@@ -89,7 +101,7 @@
                             @foreach($disainerPorfolio->LogoDisainerGallery as $LogoImage)
                                 <li class="col-md-3 col-sm-6 col-xs-12 isotope-item websites">
                                     <div class="image-gallery-item">
-                                        <a href="/storage/images/{{ $LogoImage->image }}" class="lightbox-portfolio">
+                                        <a href="/images/logotipai/{{ $LogoImage->image }}" class="lightbox-portfolio">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper">
 															<img src="/images/logotipai/{{ $LogoImage->image }}"
@@ -113,10 +125,12 @@
                 </div>
             </div>
             {{--end row--}}
+{{--            {{dd($disainerPorfolio)}}--}}
         </div>
     </div>
     @include('__include/footer')
 </div>
 @include('__include/scriptsFooter')
+<script src="{{ url('assets/vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
 </body>
 </html>

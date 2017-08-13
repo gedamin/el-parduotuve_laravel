@@ -12,10 +12,10 @@
     <meta content="Sužinokite kaip optimizuoti elektroninę parduotuvę. Nemokėk didelės kainos už SEO paslaugas. Išmok ir optimizuok svetainę pats - NEMOKAMAI!"
           property="og:description"/>
     <meta property="og:type" content="website"/>
-    <meta content="{{ url('SEO-optimizacija.php') }}" property="og:url"/>
+    <meta content="{{ route ('SEO-optimizacija') }}" property="og:url"/>
     <meta content="{{ url('assets/img/misc/logo.png') }}" property="og:image"/>
 
-    <link rel="canonical" href="{{ url('SEO-optimizacija.php') }}"/>
+    <link rel="canonical" href="{{ route ('SEO-optimizacija') }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="author" content="Gediminas">
     <!-- Twiter-->
@@ -44,8 +44,7 @@
                                 <meta itemprop="position" content="1"/>
                             </li>
                             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
-                                class="active"><a itemprop="item" href="{{ url('SEO-optimizacija.php') }}"><span
-                                            itemprop="name">SEO optimizacija</span></a>
+                                class="active"><a itemprop="item" href="{{ route ('SEO-optimizacija') }}"><span itemprop="name">SEO optimizacija</span></a>
                                 <meta itemprop="position" content="2"/>
                             </li>
                         </ul>
@@ -71,7 +70,7 @@
                                 pritaikyti ir betkuriam kitam web projektui) optimizaciją, kaip tinkamai aprašyti
                                 kategorijas, prekes ir kitus specifinius dalykus. Jeigu Jums aktualu, kad Jūsų
                                 internetinė parduotuvė su tam tikru raktiniu žodžiu būtų iškelta bent jau į pirmą
-                                dešimtuką - užsukite į <strong><a href="http://www.seopaslaptys.lt/index.php"
+                                dešimtuką - užsukite į <strong><a href="{{route('home')}}"
                                                                   title="www.seopaslaptys.lt" target="_blank">www.seopaslaptys.lt</a></strong>
                                 arba ieškokite čia <strong>www.el-parduotuve.l</strong>t ir raskite sau tinkamą
                                 patarimą.</p>
@@ -94,11 +93,7 @@
                                             <div class="col-md-12">
                                                 <p class="lead justify">Nemokama SEO konsultacija ir patarimai.
                                                     Rekomenduojame geriausius SEO specialistus. Esant poreikui
-                                                    organizuojami <a
-                                                            href="http://www.seopaslaptys.lt/video-seo-mokymai.php"
-                                                            title="SEO kursai" target="_blank">SEO kursai</a> ir <a
-                                                            href="http://www.seopaslaptys.lt/" title="SEO paslaugos"
-                                                            target="_blank">SEO paslaugos</a> įmonėms.</p>
+                                                    organizuojami <a href="http://www.seopaslaptys.lt/video-seo-mokymai.php" title="SEO kursai" target="_blank">SEO kursai</a> ir <a  href="{{route('home')}}" title="SEO paslaugos" target="_blank">SEO paslaugos</a> įmonėms.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -116,10 +111,9 @@
                                             <div>
                                                 <div>
                                                     <div class="img-thumbnail">
-                                                        <a href="{{ url('SEO-optimizacija',$post->slug) }}"><img
-                                                                    class="img-responsive"
-                                                                    src="/images/seo_post_img/{{$post->img}}"
-                                                                    alt="{{$post->title}}"></a>
+                                                        <a href="{{ route('blog.single',$post->slug) }}">
+                                                        <img class="img-responsive" src="/images/seo_post_img/{{$post->img}}" alt="{{$post->title}}">
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,23 +122,20 @@
                                     <div class="col-md-7">
                                         <div class="post-content">
                                             <h3 class="mb-xs"><a
-                                                        href="{{ url('SEO-optimizacija',$post->slug) }}">{{$post->title}}</a>
+                                                        href="{{ route('blog.single',$post->slug) }}">{{$post->title}}</a>
                                             </h3>
-                                            <p class="justify">{!! $post->short_conten !!}</p>
+                                            <div class="justify-p">{!! $post->short_conten !!}</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="post-meta">
-                                            <span><i class="fa fa-calendar"></i> {{$post->created}}</span>
-                                            <span><i class="fa fa-user"></i> Parengė <a
-                                                        href="https://plus.google.com/u/0/117284839973334834336?rel=author">{{$post->author}}</a> </span>
-                                            <span><i class="fa fa-comments"></i> <a
-                                                        href="{{ url('SEO-optimizacija',$post->slug) }}">{{ $post->comments->where("is_active_comment", 0)->count() }}
-                                                    Komentarų</a></span>
-                                            <a href="{{ url('SEO-optimizacija',$post->slug) }}"
-                                               class="btn btn-xs btn-primary pull-right">Detaliau...</a>
+                                            <span><i class="fa fa-calendar"></i> {{$post->created->format('Y-m-d')}}</span>
+                                            <span><i class="fa fa-user"></i> Parengė <a href="https://plus.google.com/u/0/117284839973334834336?rel=author">{{$post->author}}</a> </span>
+                                            <span><i class="fa fa-comments"></i> <a href="{{ route('blog.single',$post->slug) }}#cmt">{{ $post->comments->where("is_active_comment", 0)->count() }}
+                                                    Komentarai (-ų)</a></span>
+                                            <a href="{{ route('blog.single',$post->slug) }}" class="btn btn-xs btn-primary pull-right">Detaliau...</a>
                                         </div>
                                     </div>
                                 </div>
@@ -159,6 +150,6 @@
     </div>
     @include('__include/footer')
 </div>
-<@include('__include/scriptsFooter')
+@include('__include/scriptsFooter')
 </body>
 </html>

@@ -62,14 +62,15 @@
                             <textarea name="short_conten" id="content-edit-short"
                                       class="form-control">{{ $post->short_conten }}</textarea>
                             <script>
-                                CKEDITOR.replace('content-edit-short');
+                                CKEDITOR.replace( 'content-edit-short');
                             </script>
                         </div>
                     </div>
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">Turinys:</label>
                         <div class="col-sm-10">
-                            <textarea name="content" id="content-edit" class="form-control">{{ $post->content }}</textarea>
+                            <textarea name="content" id="content-edit" class="form-control">{{ htmlspecialchars($post->content) }}</textarea>
+
                         </div>
                     </div>
                     <div class="form-group required">
@@ -138,17 +139,20 @@
     </script>
 
     <!-- CKEditor init -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.11/ckeditor.js"></script>
+    {{--<script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.11/ckeditor.js"></script>--}}
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.11/adapters/jquery.js"></script>
+
     <script>
+
         $('textarea[name=content]').ckeditor({
-            height: 100,
+            height: 300,
             filebrowserImageBrowseUrl: route_prefix + '?type=Images',
             filebrowserImageUploadUrl: route_prefix + '/upload?type=Images&_token={{csrf_token()}}',
             filebrowserBrowseUrl: route_prefix + '?type=Files',
             filebrowserUploadUrl: route_prefix + '/upload?type=Files&_token={{csrf_token()}}'
         });
+
     </script>
 
 

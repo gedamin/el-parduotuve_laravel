@@ -13,15 +13,15 @@
 	<link rel="stylesheet" href="{{ url('assets/vendor/font-awesome/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ url('assets/vendor/animate/animate.min.css') }}">
 	<link rel="stylesheet" href="{{ url('assets/vendor/simple-line-icons/css/simple-line-icons.min.css') }}">
-	{{--<link rel="stylesheet" href="{{ url('assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}">--}}
-	{{--<link rel="stylesheet" href="{{ url('assets/vendor/owl.carousel/assets/owl.theme.default.min.css') }}">--}}
+	{{--<link rel="stylesheet" href="{{ url('assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}" --}} {{-- Moved to certain page kaina.php--}}
+	{{--<link rel="stylesheet" href="{{ url('assets/vendor/owl.carousel/assets/owl.theme.default.min.css') }}"--}} {{-- Moved to certain page kaina.php--}}
 	<link rel="stylesheet" href="{{ url('assets/vendor/magnific-popup/magnific-popup.min.css') }}">
 
 <!-- Theme CSS -->
 	<link rel="stylesheet" href="{{ url('assets/css/theme.css') }}">
 	<link rel="stylesheet" href="{{ url('assets/css/theme-elements.css') }}">
 	<link rel="stylesheet" href="{{ url('assets/css/theme-blog.css') }}">
-	{{--<link rel="stylesheet" href="{{ url('assets/css/theme-shop.css') }}">--}}
+	{{--<link rel="stylesheet" href="{{ url('assets/css/theme-shop.css') }}">--}}{{-- Moved to certain page kaina.php--}}
 
 <!-- Current Page CSS -->
 	<link rel="stylesheet" href="{{ url('assets/vendor/rs-plugin/css/settings.css') }}">

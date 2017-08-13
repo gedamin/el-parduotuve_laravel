@@ -146,7 +146,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="call-to-action-content align-left pb-md mb-xl ml-none">
-                            <h3 class="text-color-light mb-none mt-xl">Elektroninių <strong>parduotuvių
+                            <h3 class="text-color-light mb-none mt-xl uppercase">Elektroninių <strong>parduotuvių
                                     kūrimas...</strong></h3>
                             <p class="lead mb-xl">Peržiūrėkite siūlomą internetinės parduotuvės pasiūlymą:</p>
                         </div>
@@ -293,7 +293,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="heading heading-border heading-middle-border heading-middle-border-center mt-xlg">
-                        <h3>Elektroninių parduotuvių kūrimas</h3>
+                        <h3 class="uppercase">Elektroninių parduotuvių kūrimas</h3>
                     </div>
                 </div>
             </div>
@@ -410,23 +410,22 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="heading heading-border heading-middle-border heading-middle-border-center mb-xlg">
-                        <h3>Elektroninių parduotuvių kūrimas</h3>
+                        <h3 class="uppercase">Elektroninių parduotuvių kūrimas</h3>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <a href="http://www.el-parduotuve.lt/elektronines-parduotuves-kurimas/demonstracija.php"
+                    <a href="{{route('demonstracija')}}"
                        target="_blank"><img
                                 class="img-responsive mt-xl appear-animation"
-                                src="{{ url('assets/img/home/demo-el-parduotuve.png') }}" alt="layout styles"
+                                src="{{ url('assets/img/home/demo-el-parduotuve.png') }}" alt="elektronines parduotuves"
                                 data-appear-animation="fadeInLeft"></a>
-                    <p class="center"><a class="btn btn-borders btn-primary btn-sm mt-sm"
-                                         href="http://www.el-parduotuve.lt/elektronines-parduotuves-kurimas/demonstracija.php">Detaliau</a>
+                    <p class="center"><a class="btn btn-borders btn-primary btn-sm mt-sm"  href="{{route('demonstracija')}}">Detaliau</a>
                     </p>
                 </div>
                 <div class="col-md-7 col-md-offset-1">
-                    <h3 class="mt-xl center"><strong>Elektroninės parduotuvės kūrimas</strong></h3>
+                    <h3 class="mt-xl center uppercase"><strong>Elektroninės parduotuvės kūrimas</strong></h3>
                     <p class="text-xl center heading-primary mb-xl"><strong>Su DEMO dizainu</strong></p>
                     <p class="lead justify">Tai elektronininė parduotuvė su DEMO dizainu, nors tai ir paprastas
                         dizainas, tačiau prisitaikantis prie įvairaus dydžio įrenginių.</p>
@@ -446,7 +445,7 @@
             <hr class="tall">
             <div class="row">
                 <div class="col-md-7">
-                    <h3 class="mt-xl center"><strong>Elektroninės parduotuvės kūrimas</strong></h3>
+                    <h3 class="mt-xl center uppercase"><strong>Elektroninės parduotuvės kūrimas</strong></h3>
                     <p class="text-xl center heading-primary mb-xl"><strong>Su JOURNAL dizainu</strong></p>
                     <p class="lead justify">Tai vienas iš funkcionaliausių dizainų, kadangi Jūs kaip el-parduotuvės
                         administratorius (be programuotojo pagalbos) galėsite pakeisti itin daug elementų (spalvas,
@@ -497,7 +496,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="heading heading-border heading-middle-border heading-middle-border-center mt-xlg">
-                        <h3>Elektroninių parduotuvių kūrimas</h3>
+                        <h3 class="uppercase">Elektroninių parduotuvių kūrimas</h3>
                     </div>
                 </div>
             </div>
@@ -530,7 +529,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="heading heading-border heading-middle-border heading-middle-border-center mt-xlg">
-                            <h3>Elektroninių parduotuvių kūrimas ir SEO</h3>
+                            <h3 class="uppercase">Elektroninių parduotuvių kūrimas ir SEO</h3>
                         </div>
                     </div>
                 </div>
@@ -568,7 +567,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 center">
-                    <h3 class="mb-xlg mt-xlg"><span class="text-color-primary">Opencart</span> <strong><span
+                    <h3 class="mb-xlg mt-xlg uppercase"><span class="text-color-primary">Opencart</span> <strong><span
                                     class="text-color-secondary">elektroninės parduotuvės</span></strong> <span
                                 class="text-color-primary">privalumai</span></h3>
                 </div>
@@ -671,7 +670,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h3 class="center"><strong>Mūsų</strong> Klientų <strong>atsiliepimai</strong></h3>
+                            <h3 class="center uppercase"><strong>Mūsų</strong> Klientų <strong>atsiliepimai</strong></h3>
                         </div>
                     </div>
                     <div class="row">

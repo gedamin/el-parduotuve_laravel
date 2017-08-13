@@ -96,5 +96,6 @@
     @include('__include/footer')
 </div>
 @include('__include/scriptsFooter')
+<script src="{{ url('assets/vendor/isotope/jquery.isotope.min.js') }}"></script>
 </body>
 </html>

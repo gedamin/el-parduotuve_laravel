@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="{{ url('assets/css/admin/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/admin/stylesheet.css') }}">
     <script type="text/javascript" src="{{ url('assets/js/admin/common.js') }}"></script>
-    <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    {{--<script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>--}}
+    <script src="//cdn.ckeditor.com/4.7.1/full-all/ckeditor.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
           media="screen">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
@@ -58,15 +59,20 @@
     <ul id="menu">
         @if (Auth::check() && Auth::user()->isAdmin() )
             <li id="dashboard"><a href="{{ route('logotipu-kurimas.admin.disainer.view') }}"><i class="fa fa-dashboard fa-fw"></i> <span>Admin aplinka</span></a></li>
-            <li id="catalog"><a class="parent"><i class="fa fa-tags fa-fw"></i> <span>SEO BLOG</span></a>
+            <li id="catalog"><a class="parent"><i class="fa fa-newspaper-o fa-fw"></i> <span>SEO BLOG</span></a>
                 <ul>
                     <li><a href="{{ route('SEO-optimizacija.admin.index') }}">BLOG sąrašas</a></li>
                     <li><a href="{{ route('SEO-optimizacija.comments.list.all') }}">Visi komentarai</a></li>
                 </ul>
             </li>
-            <li id="extension"><a class="parent"><i class="fa fa-cog fa-fw"></i> <span>Atlikti darbai</span></a>
+            <li id="extension"><a class="parent"><i class="fa fa-tags fa-fw"></i> <span>Atlikti darbai</span></a>
                 <ul>
                     <li><a href="{{ route('AtliktiDarbaiCRUD') }}">Atlikti darbai</a></li>
+                </ul>
+            </li>
+            <li id="extension"><a class="parent"><i class="fa fa-users fa-fw"></i> <span>VARTOTOJAI</span></a>
+                <ul>
+                    <li><a href="{{ route('admin.users.view') }}">Vartotojai</a></li>
                 </ul>
             </li>
 

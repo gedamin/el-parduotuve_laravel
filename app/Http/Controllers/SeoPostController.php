@@ -15,7 +15,7 @@ class SeoPostController extends Controller
 {
     public function index()
     {
-        $posts = Seopost::orderBy('created','desc')->paginate(8);
+        $posts = Seopost::orderBy('created','asc')->paginate(20);
         //pass posts data to view and load list view
         $comments = SeoPostComment::all();
         //SESSION MESAGGE
@@ -127,7 +127,7 @@ class SeoPostController extends Controller
 
     public function seoPostCommentsAll()
     {
-        $comments = SeoPostComment::orderBy('id','asc')->paginate(8);
+        $comments = SeoPostComment::orderBy('id','asc')->paginate(20);
         $posts = Seopost::all();
 //       dd($posts);
 

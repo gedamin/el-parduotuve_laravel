@@ -47,19 +47,21 @@
                         <label class="col-sm-2 control-label" for="input-name">URL:</label>
                         <div class="col-sm-10">
                             <input type="text" name="slug" id="slug" class="form-control" value="">
-                            <span>URL plėtinys rašomas be tarpų, nenaudojant Lietuviškų raidžių ir spec. simbolių, o žodžiai atskiriami brūkšneliu. URL plėtinio pavyzdys: <strong>logotipo-dizaineris-jonas</strong> ir tuomet Jūsų portfolio URL bus: www.el-parduotuve.lt/logotipu-kurimas/logotipo-dizaineris-jonas </span><br/>
+                            <span class="info">URL plėtinys rašomas be tarpų, nenaudojant Lietuviškų raidžių ir spec. simbolių, o žodžiai atskiriami brūkšneliu. URL plėtinio pavyzdys: <strong>logotipo-dizaineris-jonas</strong> ir tuomet Jūsų portfolio URL bus: www.el-parduotuve.lt/logotipu-kurimas/logotipo-dizaineris-jonas </span><br/>
                         </div>
                     </div>
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">Trumpas aprašymas</label>
                         <div class="col-sm-10">
                             <input type="text" name="disainerShort_description" id="disainerShort_description" class="form-control" value="">
+                            <span class="info">Bus matomas logotipų dizainerių sąraše (ne daugiau kaip 100 simbolių tekstas). </span><br/>
                         </div>
                     </div>
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-name">Dizainerio aprašymas</label>
                         <div class="col-sm-10">
                             <textarea rows="8"  type="text" name="disainer_description" id="disainer_description" class="form-control"></textarea>
+                            <span class="info">Teksto kiekis neribojamas.</span>
                         </div>
                     </div>
                     <div class="form-group required">
@@ -67,6 +69,7 @@
                         <div class="col-sm-10">
                             <input type="file" name="disainer_avatar" id="disainer_avatar" class="form-control"
                                    value="">
+                            <span class="info">Kad tinkamai atvaizduotų Jūsų avatarą, jis privalo būti kvadrato formos.
                         </div>
                     </div>
                     <div class="form-group required">

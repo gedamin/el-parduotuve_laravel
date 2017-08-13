@@ -5,6 +5,8 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+// add this for 404
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -44,6 +46,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+
+//        return parent::render($request, $exception);
+        if($exception instanceof NotFoundHttpException)
+        {
+            return response()->view('static-pages.404', [], 404);
+        }
         return parent::render($request, $exception);
     }
 
@@ -54,6 +62,7 @@ class Handler extends ExceptionHandler
      * @param  \Illuminate\Auth\AuthenticationException  $exception
      * @return \Illuminate\Http\Response
      */
+
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         if ($request->expectsJson()) {

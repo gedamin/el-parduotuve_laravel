@@ -3251,7 +3251,9 @@ html.dark .text-muted {
 .mb-xlg {
 	margin-bottom: 30px !important;
 }
-
+.mbMinus50 {
+margin-bottom: -50px;
+}
 /* spacement left	*/
 .ml-none {
 	margin-left: 0 !important;

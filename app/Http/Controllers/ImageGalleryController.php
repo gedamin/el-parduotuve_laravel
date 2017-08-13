@@ -59,7 +59,8 @@ class ImageGalleryController extends Controller
         $logoFileName = $logo->image;
         ImageGallery::find($id)->delete();
 //        unlink(public_path('images/' . $logoFileName));
-        unlink(storage_path('app/public/images/' . $logoFileName));
+//        unlink(storage_path('app/public/images/' . $logoFileName));
+        unlink(public_path('images/logotipai/' . $logoFileName));
 
         return back()
             ->with('success','Jūsų logotipas ištrintas.');
